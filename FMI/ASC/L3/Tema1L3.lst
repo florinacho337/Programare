@@ -1,0 +1,92 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14 00000000 FF                          a db 0ffh
+    15 00000001 5A                          b db 5ah
+    16 00000002 341C                        c dw 1c34h
+    17 00000004 A2F365FF                    e dd 0ff65f3a2h
+    18 00000008 5C31ADF603000000            x dq 03f6ad315ch
+    19 00000010 0000000000000000            r dq 0
+    20                                  ; our code starts here
+    21                                  segment code use32 class=code
+    22                                      start:
+    23                                          ; ...(a-b+c*128)/(a+b)+e-x fara semn
+    24                                          ;c*128 in dx:ax
+    25 00000000 66B88000                        mov ax, 128
+    26 00000004 66F725[02000000]                mul word[c]
+    27                                          ;a + c * 128 in dx:ax
+    28 0000000B 0205[00000000]                  add al, [a]
+    29 00000011 6683D200                        adc dx, 0
+    30                                          ;a-b+c*128 in dx:ax
+    31 00000015 66BB0000                        mov bx, 0
+    32 00000019 8A1D[01000000]                  mov bl, [b]
+    33 0000001F 6629D8                          sub ax, bx
+    34 00000022 6683DA00                        sbb dx, 0
+    35                                          ;a+b in bx
+    36 00000026 66BB0000                        mov bx, 0
+    37 0000002A 8A1D[00000000]                  mov bl, [a]
+    38 00000030 021D[01000000]                  add bl, [b]
+    39                                          ;(a-b+c*128)/(a+b) = ax rest dx
+    40 00000036 66F7F3                          div bx
+    41                                          ;convert ax to eax
+    42 00000039 6650                            push ax
+    43 0000003B B800000000                      mov eax, 0
+    44 00000040 6658                            pop ax
+    45                                          ;(a-b+c*128)/(a+b)+e in eax
+    46 00000042 0305[04000000]                  add eax, [e]
+    47                                          ;(a-b+c*128)/(a+b)+e-x in edx:eax
+    48 00000048 BA00000000                      mov edx, 0
+    49 0000004D 2B05[08000000]                  sub eax, dword[x]
+    50 00000053 1B15[0C000000]                  sbb edx, dword[x+4]
+    51                                          ;salvam rezultatul in r
+    52 00000059 A3[10000000]                    mov dword[r],  eax
+    53 0000005E 8915[18000000]                  mov dword[r+8], edx
+    54                                          ;(a-b+c*128)/(a+b)+e-x cu semn
+    55                                          ;c*128 in dx:ax apoi in stiva
+    56 00000064 B080                            mov al, 128
+    57 00000066 6698                            cbw
+    58 00000068 66F72D[02000000]                imul word[c]
+    59 0000006F 6652                            push dx
+    60 00000071 6650                            push ax
+    61                                          ;a + c*128 in ebx
+    62 00000073 0FBE05[00000000]                movsx eax, byte[a]
+    63 0000007A 5B                              pop ebx
+    64 0000007B 01C3                            add ebx, eax
+    65                                          ;a-b+c*128 in ebx apoi mutam rezultatul in dx:ax
+    66 0000007D 0FBE05[01000000]                movsx eax, byte[b]
+    67 00000084 29C3                            sub ebx, eax
+    68 00000086 53                              push ebx
+    69 00000087 6658                            pop ax
+    70 00000089 665A                            pop dx
+    71                                          ;a+b in cx
+    72 0000008B 660FBE0D[00000000]              movsx  cx, byte[a]
+    73 00000093 660FBE1D[01000000]              movsx bx, byte[b]
+    74 0000009B 6601D9                          add cx, bx
+    75                                          ;(a-b+c*128)/(a+b) = ax rest dx
+    76 0000009E 66F7F9                          idiv cx
+    77                                          ;(a-b+c*128)/(a+b)+e in eax
+    78 000000A1 98                              cwde
+    79 000000A2 0305[04000000]                  add eax, [e]
+    80                                          ;(a-b+c*128)/(a+b)+e-x in edx:eax
+    81 000000A8 BB00000000                      mov ebx, 0
+    82 000000AD 2B05[08000000]                  sub eax, dword[x]
+    83 000000B3 131D[0C000000]                  adc ebx, dword[x+4]
+    84 000000B9 99                              cdq
+    85 000000BA 19DA                            sbb edx, ebx
+    86                                          ;(a-b+c*128)/(a+b)+e-x fara semn in ecx:ebx si
+    87                                          ;(a-b+c*128)/(a+b)+e-x cu semn in edx:eax
+    88 000000BC 8B1D[10000000]                  mov ebx, dword[r]
+    89 000000C2 8B0D[14000000]                  mov ecx, dword[r+4]
+    90                                          ; exit(0)
+    91 000000C8 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    92 000000CA FF15[00000000]                  call    [exit]       ; call exit to terminate the program
