@@ -11,16 +11,18 @@ import exit msvcrt.dll    ; exit is a function that ends the calling process. It
 ; our data is declared here (the variables needed by our program)
 segment data use32 class=data
     ; ...
-    a db 0ffh
-    b db 5ah
-    c dw 1c34h
-    e dd 0ff65f3a2h
-    x dq 03f6ad315ch
+    ;(a-b+c*128)/(a+b)+e-x    a,b - byte  c - word   e - dword  x - qword
+    a db 15
+    b db -10
+    c dw 3
+    e dd 11
+    x dq  -5
     r dq 0
 ; our code starts here
 segment code use32 class=code
     start:
         ; ...(a-b+c*128)/(a+b)+e-x fara semn
+        ;rezultat: 2E
         ;c*128 in dx:ax
         mov ax, 128
         mul word[c]
@@ -50,8 +52,9 @@ segment code use32 class=code
         sbb edx, dword[x+4]
         ;salvam rezultatul in r
         mov dword[r],  eax
-        mov dword[r+8], edx
+        mov dword[r+4], edx
         ;(a-b+c*128)/(a+b)+e-x cu semn
+        ; rezultat FFFFFFC9
         ;c*128 in dx:ax apoi in stiva
         mov al, 128
         cbw
@@ -77,14 +80,12 @@ segment code use32 class=code
         ;(a-b+c*128)/(a+b)+e in eax
         cwde
         add eax, [e]
-        ;(a-b+c*128)/(a+b)+e-x in edx:eax
-        mov ebx, 0
-        sub eax, dword[x]
-        adc ebx, dword[x+4]
         cdq
-        sbb edx, ebx
-        ;(a-b+c*128)/(a+b)+e-x fara semn in ecx:ebx si
-        ;(a-b+c*128)/(a+b)+e-x cu semn in edx:eax
+        ;(a-b+c*128)/(a+b)+e-x in edx:eax
+        sub eax, dword[x]
+        sbb edx, dword[x+4]
+        ;(a-b+c*128)/(a+b)+e-x fara semn in ecx:ebx si 000000000000002E
+        ;(a-b+c*128)/(a+b)+e-x cu semn in edx:eax FFFFFFFFFFFFFFC9
         mov ebx, dword[r]
         mov ecx, dword[r+4]
         ; exit(0)
