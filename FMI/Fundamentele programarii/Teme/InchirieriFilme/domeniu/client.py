@@ -24,7 +24,10 @@ class Client:
         return self.__id_client == other.__id_client
 
     def __str__(self):
-        return f"{self.__id_client}. {self.__nume_client}, {self.__cnp_client}"
+        return f"{self.__id_client},{self.__nume_client},{self.__cnp_client}"
+
+    def __lt__(self, other):
+        return self.__nume_client < other.__nume_client
 
 
 

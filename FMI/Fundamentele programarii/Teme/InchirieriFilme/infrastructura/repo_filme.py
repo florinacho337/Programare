@@ -4,7 +4,7 @@ from erori.repo_error import RepoError
 class RepoFilme:
 
     def __init__(self):
-        self.__filme = {}
+        self._filme = {}
 
     def adauga_film(self, film):
         '''
@@ -13,9 +13,9 @@ class RepoFilme:
         :return: - (adauga in repository filmul film_adaugat)
         :raises: RepoError daca id-ul filmului film_adaugat este deja existent
         '''
-        if film.get_id_film() in self.__filme:
+        if film.get_id_film() in self._filme:
             raise RepoError("Film existent!")
-        self.__filme[film.get_id_film()] = film
+        self._filme[film.get_id_film()] = film
 
     def sterge_film_dupa_id(self, id_film):
         '''
@@ -24,9 +24,9 @@ class RepoFilme:
         :return: - (sterge din repository filmul cu id-ul intreg id_film)
         :raises: RepoError daca id-ul id_film nu exista
         '''
-        if id_film not in self.__filme:
+        if id_film not in self._filme:
             raise RepoError("Film inexistent!")
-        del self.__filme[id_film]
+        del self._filme[id_film]
 
     def cauta_film_dupa_id(self, id_film):
         '''
@@ -35,9 +35,9 @@ class RepoFilme:
         :return: filmul cu id-ul intreg id_film
         :raises: RepoError daca id-ul id_film nu exista
         '''
-        if id_film not in self.__filme:
+        if id_film not in self._filme:
             raise RepoError("Film inexistent!")
-        return self.__filme[id_film]
+        return self._filme[id_film]
 
     def modifica_film(self, film):
         '''
@@ -46,9 +46,9 @@ class RepoFilme:
         :return: - (modifica filmul de pe id-ul intreg al filmului modificat film cu filmul modificat film)
         :raises: RepoError daca id-ul id_film nu exista
         '''
-        if film.get_id_film() not in self.__filme:
+        if film.get_id_film() not in self._filme:
             raise RepoError("Film inexistent!")
-        self.__filme[film.get_id_film()] = film
+        self._filme[film.get_id_film()] = film
 
     def get_all(self):
         '''
@@ -56,8 +56,8 @@ class RepoFilme:
         :return: toate filmele din repository
         '''
         filme = []
-        for id_film in self.__filme:
-            filme.append(self.__filme[id_film])
+        for id_film in self._filme:
+            filme.append(self._filme[id_film])
         return filme
 
     def __len__(self):
@@ -65,7 +65,17 @@ class RepoFilme:
         returneaza numarul de filme din repository
         :return: numarul de filme din repository
         '''
-        return len(self.__filme)
+        return len(self._filme)
+
+    def get_all_ids(self):
+        '''
+        returneaza toate id-urile filmelor din repository
+        :return: toate id-urile filmelor din repository
+        '''
+        ids = []
+        for id_film in self._filme:
+            ids.append(id_film)
+        return ids
 
 
 

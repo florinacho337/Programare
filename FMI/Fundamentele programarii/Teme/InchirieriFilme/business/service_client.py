@@ -1,4 +1,6 @@
 from domeniu.client import Client
+import random
+import string
 
 
 class ServiceClient:
@@ -6,6 +8,8 @@ class ServiceClient:
     def __init__(self, validator_client, repo_clienti):
         self.__validator_client = validator_client
         self.__repo_clienti = repo_clienti
+        self.__cifre = string.digits
+        self.__litere = string.ascii_lowercase
 
     def adauga_client(self, id_client, nume_client, cnp_client):
         '''
@@ -59,3 +63,29 @@ class ServiceClient:
         :raises: RepoError daca id-ul clientului id_client nu exista
         '''
         return self.__repo_clienti.cauta_client_dupa_id(id_client)
+
+    def genereaza_client(self):
+        '''
+        se genereaza un client cu un id intreg intre 0 si 100, un nume de lungimea len_nume si
+        un cnp din 13 cifre in format string
+        :return: -
+        '''
+        id_client = random.randrange(0, 100)
+        while id_client in self.__repo_clienti.get_all_ids():
+            id_client = random.randrange(0, 100)
+        nume_client = "".join(random.choice(self.__litere) for i in range(10))
+        cnp_client = "".join(random.choice(self.__cifre) for i in range(13))
+        client = Client(id_client, nume_client, cnp_client)
+        self.__repo_clienti.adauga_client(client)
+
+    def get_clienti_dupa_nume(self):
+        '''
+        returneaza clientii sortati dupa nume
+        :return: clientii sortati dupa nume
+        complexitate: O(nlogn), unde n este numarul de clienti
+
+        '''
+        clienti = self.__repo_clienti.get_all()
+        clienti.sort()
+        return clienti
+

@@ -3,7 +3,7 @@ from erori.validation_error import ValidationError
 
 class ValidareClient:
 
-    def __int__(self):
+    def __init__(self):
         pass
 
     def valideaza(self, client):

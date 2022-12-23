@@ -4,7 +4,7 @@ from erori.repo_error import RepoError
 class RepoClienti:
 
     def __init__(self):
-        self.__clienti = {}
+        self._clienti = {}
 
     def adauga_client(self, client):
         '''
@@ -13,11 +13,9 @@ class RepoClienti:
         :return: -
         :raises: RepoError daca id-ul clientului client_nou este deja existent
         '''
-        if client.get_id_client() in self.__clienti:
+        if client.get_id_client() in self._clienti:
             raise RepoError("Client existent!")
-        self.__clienti[client.get_id_client()] = client
-
-
+        self._clienti[client.get_id_client()] = client
 
     def get_all(self):
         '''
@@ -25,8 +23,8 @@ class RepoClienti:
         :return: toti clientii din repository
         '''
         clienti = []
-        for id_client in self.__clienti:
-            clienti.append(self.__clienti[id_client])
+        for id_client in self._clienti:
+            clienti.append(self._clienti[id_client])
         return clienti
 
     def __len__(self):
@@ -34,7 +32,7 @@ class RepoClienti:
         returneaza numarul de clienti din repository
         :return: numarul de clienti din repository
         '''
-        return len(self.__clienti)
+        return len(self._clienti)
 
     def modifica_client(self, client_modificat):
         '''
@@ -44,9 +42,9 @@ class RepoClienti:
         :return: -
         :raises: RepoError daca id-ul clientului id_client nu exista
         '''
-        if client_modificat.get_id_client() not in self.__clienti:
+        if client_modificat.get_id_client() not in self._clienti:
             raise RepoError("Client inexistent!")
-        self.__clienti[client_modificat.get_id_client()] = client_modificat
+        self._clienti[client_modificat.get_id_client()] = client_modificat
 
     def cauta_client_dupa_id(self, id_client):
         '''
@@ -55,6 +53,28 @@ class RepoClienti:
         :return: clientul cu id-ul intreg id_client
         :raises: RepoError daca id-ul clientului este inexistent
         '''
-        if id_client not in self.__clienti:
+        if id_client not in self._clienti:
             raise RepoError("Client inexistent!")
-        return self.__clienti[id_client]
+        return self._clienti[id_client]
+
+    def sterge_client_dupa_id(self, id_client):
+        '''
+        sterge din repository clientu cu id-ul intreg id_client
+        :param id_client: intreg
+        :return: - (sterge din repository clientul cu id-ul intreg id_client)
+        :raises: RepoError daca id-ul id_client nu exista
+        '''
+        if id_client not in self._clienti:
+            raise RepoError("Client inexistent!")
+        del self._clienti[id_client]
+
+    def get_all_ids(self):
+        '''
+        returneaza toate id-urile clientilor din repository
+        :return: toate id-urile clientilor din repository
+        '''
+        ids = []
+        for id_client in self._clienti:
+            ids.append(id_client)
+        return ids
+

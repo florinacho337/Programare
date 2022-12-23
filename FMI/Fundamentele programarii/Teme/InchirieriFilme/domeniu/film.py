@@ -31,4 +31,4 @@ class Film:
         return self.__id_film == other.__id_film
 
     def __str__(self):
-        return f"{self.__id_film}. {self.__titlu_film}, {self.__gen_film}, {self.__descriere_film}"
+        return f"{self.__id_film},{self.__titlu_film},{self.__gen_film},{self.__descriere_film}"

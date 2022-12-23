@@ -1,4 +1,6 @@
 from domeniu.film import Film
+import random
+import string
 
 
 class ServiceFilm:
@@ -6,6 +8,8 @@ class ServiceFilm:
     def __init__(self, validator_film, repo_filme):
         self.__validator_film = validator_film
         self.__repo_filme = repo_filme
+        self.__litere = string.ascii_lowercase
+        self.__litere_si_semne_de_punctuatie = self.__litere + ".,!?"
 
     def adauga_film(self, id_film, titlu_film, descriere_film, gen_film):
         '''
@@ -26,15 +30,6 @@ class ServiceFilm:
         film = Film(id_film, titlu_film, descriere_film, gen_film)
         self.__validator_film.valideaza(film)
         self.__repo_filme.adauga_film(film)
-
-    def sterge_filmul_cu_id(self, id_film):
-        '''
-        sterge filmul cu id-ul intreg id_film
-        :param id_film: intreg
-        :return: -
-        :raises: RepoError daca id-ul id_film nu exista
-        '''
-        self.__repo_filme.sterge_film_dupa_id(id_film)
 
     def modifica_filmul(self, id_film, titlu_nou, descriere_noua, gen_nou):
         '''
@@ -72,4 +67,18 @@ class ServiceFilm:
         :return: toate filmele din repository
         '''
         return self.__repo_filme.get_all()
+
+    def genereaza_film(self):
+        '''
+        se genereaza un film cu un id intreg intre 0 si 100, un titlu, un gen si o descriere
+        :return: -
+        '''
+        id_film = random.randrange(0, 100)
+        while id_film in self.__repo_filme.get_all_ids():
+            id_film = random.randrange(0, 100)
+        titlu_film = "".join(random.choice(self.__litere) for i in range(10))
+        gen_film = "".join(random.choice(self.__litere) for i in range(10))
+        descriere_film = "".join(random.choice(self.__litere_si_semne_de_punctuatie) for i in range(50))
+        film = Film(id_film, titlu_film, descriere_film, gen_film)
+        self.__repo_filme.adauga_film(film)
 

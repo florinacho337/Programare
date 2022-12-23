@@ -1,0 +1,2 @@
+1,titlu1,gen1,descriere1
+2,titlu2,gen2,gen2
