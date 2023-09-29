@@ -1,0 +1,20 @@
+        -:    0:Source:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/main.cpp
+        -:    0:Graph:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug-coverage/CMakeFiles/DictionarLDI.dir/main.cpp.gcno
+        -:    0:Data:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug-coverage/CMakeFiles/DictionarLDI.dir/main.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:
+        -:    3:#include "TestScurt.h"
+        -:    4:#include "TestExtins.h"
+        -:    5:
+function main called 1 returned 100% blocks executed 100%
+        1:    6:int main(){
+        1:    7:    testAll();
+        1:    7-block  0
+call    0 returned 1
+        1:    8:    testAllExtins();
+call    0 returned 1
+        1:    9:    std::cout<<"Finished Tests!"<<std::endl;
+call    0 returned 1
+call    1 returned 1
+        1:   10:}

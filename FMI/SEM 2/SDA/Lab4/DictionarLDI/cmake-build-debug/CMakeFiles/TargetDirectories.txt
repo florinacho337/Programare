@@ -1,0 +1,3 @@
+/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug/CMakeFiles/DictionarLDI.dir
+/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,194 @@
+        -:    0:Source:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/main.c
+        -:    0:Graph:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/cmake-build-debug-coverage/CMakeFiles/labrefacut.dir/main.c.gcno
+        -:    0:Data:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/cmake-build-debug-coverage/CMakeFiles/labrefacut.dir/main.c.gcda
+        -:    0:Runs:1
+        -:    1://5. Gestiune cont bancar
+        -:    2://
+        -:    3://Creati o aplicatie care permite gestiunea tranzactiilor unui cont bancar.
+        -:    4://O tranzactie are urmatoarele elemente: ziua (ziua din luna in care s-a efectuat tranzactia),
+        -:    5://suma, tip (intrare/iesire), descriere.
+        -:    6://Aplicatia permite:
+        -:    7://a) adaugare de tranzactii
+        -:    8://b) modificare tranzactie existenta
+        -:    9://c) stergere  tranzactie existenta
+        -:   10://d) Vizualizare tranzactii dupa un criteriu (tranzactii de un anumit tip, tranzactii cu suma mai mare/mai mica decat o suma data)
+        -:   11://e) Vizualizare tranzactii ordonat dupa suma sau zi (crescator/descrescator)
+        -:   12:
+        -:   13:
+        -:   14:#include "teste.h"
+        -:   15:#include "ui.h"
+        -:   16:#include<stdio.h>
+        -:   17:
+        -:   18:
+function main called 1 returned 100% blocks executed 22%
+        1:   19:int main()
+        -:   20:{
+        1:   21:    run_teste();
+        1:   21-block  0
+call    0 returned 1
+        -:   22:    Service repo;
+        1:   23:    repo = createService();
+call    0 returned 1
+        1:   24:    int status = 1;
+        -:   25:    int status_criteriu;
+        -:   26:    int optiune_criteriu;
+        -:   27:    int status_ordine;
+        -:   28:    int optiune;
+        -:   29:    int ordine;
+        -:   30:    int criteriu;
+        -:   31:
+        2:   32:    while (status) {
+        2:   32-block  0
+branch  0 taken 1
+branch  1 taken 1 (fallthrough)
+        1:   33:        meniu();
+        1:   33-block  0
+call    0 returned 1
+        1:   34:        scanf("%d", &optiune);
+call    0 returned 1
+        1:   35:        if (optiune == 0) {
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+        1:   36:            status = 0;
+        1:   37:            printf("Exiting...");
+        1:   37-block  0
+call    0 returned 1
+    #####:   38:        } else if (optiune == 1)
+    %%%%%:   38-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   39:            ui_add(&repo);
+    %%%%%:   39-block  0
+call    0 never executed
+    #####:   40:        else if (optiune == 2)
+    %%%%%:   40-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   41:            ui_modify(&repo);
+    %%%%%:   41-block  0
+call    0 never executed
+    #####:   42:        else if (optiune == 3)
+    %%%%%:   42-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   43:            ui_delete(&repo);
+    %%%%%:   43-block  0
+call    0 never executed
+    #####:   44:        else if (optiune == 4) {
+    %%%%%:   44-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   45:            status_criteriu = 1;
+    #####:   46:            while (status_criteriu) {
+    %%%%%:   46-block  0
+    %%%%%:   46-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   47:                printf("1. Vizualizati dupa tip: \n2. Vizualizati in functie de suma: \n");
+    %%%%%:   47-block  0
+call    0 never executed
+    #####:   48:                scanf("%d", &optiune_criteriu);
+call    0 never executed
+    #####:   49:                if (optiune_criteriu == 1) {
+branch  0 never executed
+branch  1 never executed
+    #####:   50:                    status_criteriu = 0;
+    #####:   51:                    ui_print_by_type(&repo);
+    %%%%%:   51-block  0
+call    0 never executed
+        -:   52:
+    #####:   53:                } else if (optiune_criteriu == 2) {
+    %%%%%:   53-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   54:                    status_criteriu = 0;
+    #####:   55:                    ui_print_by_sum(&repo);
+    %%%%%:   55-block  0
+call    0 never executed
+        -:   56:
+    #####:   57:                } else printf("Optiune inexistenta!\n");
+    %%%%%:   57-block  0
+call    0 never executed
+        -:   58:            }
+    #####:   59:        } else if (optiune == 5) {
+    %%%%%:   59-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   60:            status_criteriu = 1;
+    #####:   61:            while (status_criteriu) {
+    %%%%%:   61-block  0
+    %%%%%:   61-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   62:                printf("Sortati dupa criteriu (1. Dupa zi / 2. Dupa suma): \n");
+    %%%%%:   62-block  0
+call    0 never executed
+    #####:   63:                scanf("%d", &criteriu);
+call    0 never executed
+    #####:   64:                if (criteriu == 1 || criteriu == 2) {
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   64-block  0
+branch  2 never executed
+branch  3 never executed
+    #####:   65:                    status_criteriu = 0;
+    #####:   66:                    status_ordine = 1;
+    #####:   67:                    while (status_ordine) {
+    %%%%%:   67-block  0
+    %%%%%:   67-block  1
+branch  0 never executed
+branch  1 never executed
+    #####:   68:                        printf("Ordine sortare (1. ascending / 2. descending): \n");
+    %%%%%:   68-block  0
+call    0 never executed
+    #####:   69:                        scanf("%d", &ordine);
+call    0 never executed
+    #####:   70:                        if (ordine == 1 || ordine == 2)
+branch  0 never executed
+branch  1 never executed
+    %%%%%:   70-block  0
+branch  2 never executed
+branch  3 never executed
+        -:   71:                        {
+    #####:   72:                            status_ordine = 0;
+    #####:   73:                            ui_select_sort(&repo, criteriu, ordine);
+    %%%%%:   73-block  0
+call    0 never executed
+        -:   74:                        }
+    #####:   75:                        else printf( "Ordine invalida!\n");
+    %%%%%:   75-block  0
+call    0 never executed
+        -:   76:                    }
+        -:   77:
+        -:   78:                }
+    #####:   79:                else printf("Criteriu invalid!\n");
+    %%%%%:   79-block  0
+call    0 never executed
+        -:   80:            }
+    #####:   81:        } else if (optiune == 6)
+    %%%%%:   81-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   82:            ui_print(&repo);
+    %%%%%:   82-block  0
+call    0 never executed
+    #####:   83:        else if (optiune == 7)
+    %%%%%:   83-block  0
+branch  0 never executed
+branch  1 never executed
+    #####:   84:            ui_undo(&repo);
+    %%%%%:   84-block  0
+call    0 never executed
+    #####:   85:        else printf("Optiune invalida!\n");
+    %%%%%:   85-block  0
+call    0 never executed
+        -:   86:
+        -:   87:
+        -:   88:    }
+        1:   89:    destroyService(&repo);
+        1:   89-block  0
+call    0 returned 1
+        1:   90:    return 0;
+        -:   91:
+        -:   92:}
+        -:   93:

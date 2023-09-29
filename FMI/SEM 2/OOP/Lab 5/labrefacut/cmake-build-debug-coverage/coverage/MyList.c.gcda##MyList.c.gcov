@@ -1,0 +1,420 @@
+        -:    0:Source:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/MyList.c
+        -:    0:Graph:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/cmake-build-debug-coverage/CMakeFiles/labrefacut.dir/MyList.c.gcno
+        -:    0:Data:/home/florin/FMI/SEM2/OOP/Lab 5/labrefacut/cmake-build-debug-coverage/CMakeFiles/labrefacut.dir/MyList.c.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by florin on 26.03.2023.
+        -:    3://
+        -:    4:
+        -:    5:
+        -:    6:#include <assert.h>
+        -:    7:#include <malloc.h>
+        -:    8:#include <string.h>
+        -:    9:#include "domain.h"
+        -:   10:#include "MyList.h"
+        -:   11:
+function createEmpty called 30 returned 100% blocks executed 100%
+       30:   12:MyList* createEmpty(DestroyFct destroy){
+       30:   13:    MyList* l = malloc(sizeof(MyList));
+       30:   14:    l->l = 0;
+       30:   15:    l->cp = 2;
+       30:   16:    l->destroy = destroy;
+       30:   17:    l->list = malloc(sizeof(ElemType) * l->cp);
+       30:   18:    return l;
+       30:   18-block  0
+        -:   19:}
+        -:   20:
+        -:   21:
+function destroyList called 30 returned 100% blocks executed 100%
+       30:   22:void destroyList(MyList* l){
+       91:   23:    for(int i = 0; i < l->l; ++i)
+       30:   23-block  0
+       91:   23-block  1
+branch  0 taken 61
+branch  1 taken 30 (fallthrough)
+       61:   24:        l->destroy(l->list[i]);
+       61:   24-block  0
+call    0 returned 61
+       30:   25:    free(l->list);
+       30:   26:    free(l);
+       30:   27:}
+        -:   28:
+function get called 83 returned 100% blocks executed 100%
+       83:   29:ElemType get(MyList* l, int poz){
+       83:   30:    return l->list[poz];
+       83:   30-block  0
+        -:   31:}
+        -:   32:
+function set called 13 returned 100% blocks executed 100%
+       13:   33:ElemType set(MyList* l, int poz, ElemType p){
+       13:   34:    ElemType rez = l->list[poz];
+       13:   35:    l->list[poz] = p;
+       13:   36:    return rez;
+       13:   36-block  0
+        -:   37:}
+        -:   38:
+function size called 104 returned 100% blocks executed 100%
+      104:   39:int size(MyList* l){
+      104:   40:    return l->l;
+      104:   40-block  0
+        -:   41:}
+        -:   42:
+        -:   43:/*
+        -:   44: * asigura ca exista destul loc in lista pentru adaugarea elementelor
+        -:   45: */
+function ensureCapacity called 69 returned 100% blocks executed 100%
+       69:   46:void ensureCapacity(MyList* l){
+       69:   47:    if(l->l < l->cp)
+       69:   47-block  0
+branch  0 taken 58 (fallthrough)
+branch  1 taken 11
+       58:   48:        return;
+       58:   48-block  0
+       11:   49:    ElemType* nElems = malloc(sizeof(ElemType) * (l->cp + 4));
+       37:   50:    for(int i = 0; i < l->l; ++i)
+       11:   50-block  0
+       37:   50-block  1
+branch  0 taken 26
+branch  1 taken 11 (fallthrough)
+       26:   51:        nElems[i] = l->list[i];
+       26:   51-block  0
+       11:   52:    free(l->list);
+       11:   53:    l->list = nElems;
+       11:   54:    l->cp = l->cp + 4;
+       11:   54-block  0
+        -:   55:}
+        -:   56:
+        -:   57:/*
+        -:   58: * adauga elementul p la finalul listei
+        -:   59: */
+function add called 69 returned 100% blocks executed 100%
+       69:   60:void add(MyList* l, ElemType p){
+       69:   61:    ensureCapacity(l);
+       69:   61-block  0
+call    0 returned 69
+       69:   62:    l->list[l->l] = p;
+       69:   63:    l->l++;
+       69:   64:}
+        -:   65:
+        -:   66:/*
+        -:   67: * sterge ultimul element din lista
+        -:   68: * returneaza ultimul element din lista
+        -:   69: */
+function removeLast called 5 returned 100% blocks executed 100%
+        5:   70:ElemType removeLast(MyList* l){
+        5:   71:    ElemType rez = l->list[l->l - 1];
+        5:   72:    l->l--;
+        5:   73:    return rez;
+        5:   73-block  0
+        -:   74:}
+        -:   75:
+        -:   76:/*
+        -:   77: * sterge elementul de pe pozitia poz din lista
+        -:   78: * poz - intreg
+        -:   79: */
+function removeP called 3 returned 100% blocks executed 100%
+        3:   80:void removeP(MyList* l, int poz){
+        3:   81:    l->destroy(l->list[poz]);
+        3:   81-block  0
+call    0 returned 3
+        4:   82:    for(int i = poz; i < l->l-1; ++i)
+        4:   82-block  0
+branch  0 taken 1
+branch  1 taken 3 (fallthrough)
+        1:   83:        l->list[i] = l->list[i+1];
+        1:   83-block  0
+        3:   84:    l->l--;
+        3:   85:}
+        -:   86:
+        -:   87:/*
+        -:   88: * face o copie a listei
+        -:   89: * returneaza o lista cu aceleasi elemente din lista l
+        -:   90: */
+function copyList called 14 returned 100% blocks executed 100%
+       14:   91:MyList* copyList(MyList* l, CopyFct copy){
+       14:   92:    MyList* copie = createEmpty(l->destroy);
+       14:   92-block  0
+call    0 returned 14
+       37:   93:    for(int i = 0; i < size(l); ++i) {
+       37:   93-block  0
+call    0 returned 37
+branch  1 taken 23
+branch  2 taken 14 (fallthrough)
+       23:   94:        ElemType e = get(l, i);
+       23:   94-block  0
+call    0 returned 23
+       23:   95:        add(copie, copy(e));
+call    0 returned 23
+call    1 returned 23
+        -:   96:    }
+       14:   97:    return copie;
+       14:   97-block  0
+        -:   98:}
+        -:   99:
+function testCreateList called 1 returned 100% blocks executed 83%
+        1:  100:void testCreateList() {
+        1:  101:    MyList* l = createEmpty((DestroyFct) destroyTranzactie);
+        1:  101-block  0
+call    0 returned 1
+       1*:  102:    assert(size(l) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  102-block  0
+call    3 never executed
+        1:  103:    destroyList(l);
+        1:  103-block  0
+call    0 returned 1
+        1:  104:}
+function testIterateList called 1 returned 100% blocks executed 81%
+        1:  105:void testIterateList() {
+        1:  106:    MyList* l = createEmpty((DestroyFct)destroyTranzactie);
+        1:  106-block  0
+call    0 returned 1
+        1:  107:    add(l, creeazaTranzactie( 10, 100, "tip1", "descriere1"));
+call    0 returned 1
+call    1 returned 1
+        1:  108:    add(l, creeazaTranzactie( 15, 245, "tip2", "descriere2"));
+call    0 returned 1
+call    1 returned 1
+       1*:  109:    assert(size(l) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  109-block  0
+call    3 never executed
+        1:  110:    Tranzactie* p = (Tranzactie*)get(l,0);
+        1:  110-block  0
+call    0 returned 1
+        -:  111:
+       1*:  112:    assert(strcmp(p->tip,"tip1") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  112-block  0
+call    2 never executed
+        1:  113:    p = (Tranzactie*)get(l, 1);
+        1:  113-block  0
+call    0 returned 1
+       1*:  114:    assert(strcmp(p->descriere, "descriere2") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  114-block  0
+call    2 never executed
+        1:  115:    destroyList(l);
+        1:  115-block  0
+call    0 returned 1
+        1:  116:}
+function testCopyList called 1 returned 100% blocks executed 87%
+        1:  117:void testCopyList() {
+        1:  118:    MyList* l = createEmpty((DestroyFct)destroyTranzactie);
+        1:  118-block  0
+call    0 returned 1
+        1:  119:    add(l, creeazaTranzactie(10, 100, "tip1", "descriere1"));
+call    0 returned 1
+call    1 returned 1
+        1:  120:    add(l, creeazaTranzactie(15, 245, "tip2", "descriere2"));
+call    0 returned 1
+call    1 returned 1
+        -:  121:    MyList *l2;
+        1:  122:    l2 = copyList(l, (CopyFct)copyTranzactie);
+call    0 returned 1
+       1*:  123:    assert(size(l2) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  123-block  0
+call    3 never executed
+        1:  124:    Tranzactie* p = (Tranzactie*)get(l2, 0);
+        1:  124-block  0
+call    0 returned 1
+       1*:  125:    assert(strcmp(p->tip, "tip1") == 0);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  125-block  0
+call    2 never executed
+        1:  126:    destroyList(l);
+        1:  126-block  0
+call    0 returned 1
+        1:  127:    destroyList(l2);
+call    0 returned 1
+        1:  128:}
+function testResize called 1 returned 100% blocks executed 91%
+        1:  129:void testResize() {
+        1:  130:    MyList* l = createEmpty((DestroyFct)destroyTranzactie);
+        1:  130-block  0
+call    0 returned 1
+       11:  131:    for (int i = 0; i < 10; i++) {
+       11:  131-block  0
+branch  0 taken 10
+branch  1 taken 1 (fallthrough)
+       10:  132:        add(l, creeazaTranzactie(20, 10, "tip", "b"));
+       10:  132-block  0
+call    0 returned 10
+call    1 returned 10
+        -:  133:    }
+       1*:  134:    assert(size(l) == 10);
+        1:  134-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  134-block  1
+call    3 never executed
+        1:  135:    destroyList(l);
+        1:  135-block  0
+call    0 returned 1
+        1:  136:}
+function testListOfLists called 1 returned 100% blocks executed 85%
+        1:  137:void testListOfLists() {
+        1:  138:    MyList *listOfLists = createEmpty((DestroyFct)destroyList);
+        1:  138-block  0
+call    0 returned 1
+        1:  139:    MyList* listOfTranzactii = createEmpty((DestroyFct)destroyTranzactie);
+call    0 returned 1
+        1:  140:    add(listOfTranzactii, creeazaTranzactie(20, 10, "tip", "b"));
+call    0 returned 1
+call    1 returned 1
+        1:  141:    add(listOfTranzactii, creeazaTranzactie(20, 10, "tip", "b"));
+call    0 returned 1
+call    1 returned 1
+        1:  142:    add(listOfTranzactii, creeazaTranzactie(20, 10, "tip", "b"));
+call    0 returned 1
+call    1 returned 1
+        1:  143:    add(listOfLists, listOfTranzactii);
+call    0 returned 1
+        1:  144:    MyList* cpy = copyList(listOfTranzactii, (CopyFct)copyTranzactie);
+call    0 returned 1
+        1:  145:    add(listOfLists, cpy);
+call    0 returned 1
+       1*:  146:    assert(size(listOfLists) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  146-block  0
+call    3 never executed
+       1*:  147:    assert(size(listOfTranzactii) == 3);
+        1:  147-block  0
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  147-block  1
+call    3 never executed
+        -:  148:
+        1:  149:    MyList* el2 = (MyList*)get(listOfLists, 1);
+        1:  149-block  0
+call    0 returned 1
+       1*:  150:    assert(size(el2) == 3);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  150-block  0
+call    3 never executed
+        1:  151:    removeP(listOfLists, 0);
+        1:  151-block  0
+call    0 returned 1
+       1*:  152:    assert(size(listOfLists) == 1);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  152-block  0
+call    3 never executed
+        -:  153:
+        1:  154:    destroyList(listOfLists);
+        1:  154-block  0
+call    0 returned 1
+        1:  155:}
+function createIntOnHeap called 6 returned 100% blocks executed 100%
+        6:  156:int* createIntOnHeap(int value) {
+        6:  157:    int* pi = (int*)malloc(sizeof(int));
+        6:  158:    *pi = value;
+        6:  159:    return pi;
+        6:  159-block  0
+        -:  160:}
+function testListOfInts called 1 returned 100% blocks executed 90%
+        1:  161:void testListOfInts() {
+        1:  162:    MyList* l = createEmpty(free);//use stdlib free to free memory
+        1:  162-block  0
+call    0 returned 1
+        -:  163:
+        1:  164:    add(l, createIntOnHeap(0));
+call    0 returned 1
+call    1 returned 1
+        1:  165:    add(l, createIntOnHeap(1));
+call    0 returned 1
+call    1 returned 1
+        1:  166:    add(l, createIntOnHeap(2));
+call    0 returned 1
+call    1 returned 1
+        1:  167:    add(l, createIntOnHeap(3));
+call    0 returned 1
+call    1 returned 1
+        1:  168:    add(l, createIntOnHeap(4));
+call    0 returned 1
+call    1 returned 1
+        1:  169:    add(l, createIntOnHeap(0));
+call    0 returned 1
+call    1 returned 1
+       1*:  170:    assert(size(l) == 6);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  170-block  0
+call    3 never executed
+        -:  171:
+        1:  172:    int* nr = (int*)get(l, 3);
+        1:  172-block  0
+call    0 returned 1
+       1*:  173:    assert(*nr == 3);
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:  173-block  0
+call    2 never executed
+        -:  174:
+        1:  175:    destroyList(l);
+        1:  175-block  0
+call    0 returned 1
+        1:  176:}
+function testRemoveLast called 1 returned 100% blocks executed 85%
+        1:  177:void testRemoveLast() {
+        1:  178:    MyList* l = createEmpty((DestroyFct)destroyTranzactie);
+        1:  178-block  0
+call    0 returned 1
+        1:  179:    add(l, creeazaTranzactie(20, 10, "tip", "b"));
+call    0 returned 1
+call    1 returned 1
+        1:  180:    add(l, creeazaTranzactie(20, 10, "tip", "b"));
+call    0 returned 1
+call    1 returned 1
+       1*:  181:    assert(size(l) == 2);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  181-block  0
+call    3 never executed
+        1:  182:    Tranzactie* el = (Tranzactie*)removeLast(l);
+        1:  182-block  0
+call    0 returned 1
+       1*:  183:    assert(size(l) == 1);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  183-block  0
+call    3 never executed
+        1:  184:    destroyTranzactie(el);
+        1:  184-block  0
+call    0 returned 1
+        -:  185:
+        1:  186:    el = (Tranzactie*)removeLast(l);
+call    0 returned 1
+       1*:  187:    assert(size(l) == 0);
+call    0 returned 1
+branch  1 taken 0 (fallthrough)
+branch  2 taken 1
+    %%%%%:  187-block  0
+call    3 never executed
+        1:  188:    destroyTranzactie(el);
+        1:  188-block  0
+call    0 returned 1
+        -:  189:
+        1:  190:    destroyList(l);
+call    0 returned 1
+        1:  191:}

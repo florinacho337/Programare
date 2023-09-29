@@ -1,0 +1,3 @@
+/home/florin/FMI/SEM2/SDA/Lab1/Colectie/cmake-build-debug/CMakeFiles/Colectie.dir
+/home/florin/FMI/SEM2/SDA/Lab1/Colectie/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/florin/FMI/SEM2/SDA/Lab1/Colectie/cmake-build-debug/CMakeFiles/rebuild_cache.dir

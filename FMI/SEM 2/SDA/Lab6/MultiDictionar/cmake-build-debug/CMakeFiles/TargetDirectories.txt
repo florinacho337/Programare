@@ -1,0 +1,3 @@
+/home/florin/FMI/SEM2/SDA/Lab6/MultiDictionar/cmake-build-debug/CMakeFiles/MultiDictionar.dir
+/home/florin/FMI/SEM2/SDA/Lab6/MultiDictionar/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/florin/FMI/SEM2/SDA/Lab6/MultiDictionar/cmake-build-debug/CMakeFiles/rebuild_cache.dir

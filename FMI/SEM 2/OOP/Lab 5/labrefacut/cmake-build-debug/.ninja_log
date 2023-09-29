@@ -1,0 +1,8 @@
+# ninja log v5
+0	241	1680183519632012023	CMakeFiles/labrefacut.dir/service.c.o	3331b290e238a97c
+67	265	1680163514298351809	CMakeFiles/labrefacut.dir/ui.c.o	64a92eb2c5d91fdb
+241	329	1680183519720012749	labrefacut	c9d2adee2129bafd
+0	67	1680163514098350499	CMakeFiles/labrefacut.dir/MyList.c.o	1ab631317f37cf8d
+2	189	1680163957965426533	CMakeFiles/labrefacut.dir/domain.c.o	270c0ad20e96f709
+0	97	1680163514126350683	CMakeFiles/labrefacut.dir/main.c.o	6eeded4f1a44e7a6
+0	39	1680183393019165648	CMakeFiles/labrefacut.dir/teste.c.o	4c10a51076d5918a

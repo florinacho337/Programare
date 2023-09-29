@@ -1,0 +1,7 @@
+# ninja log v5
+1	334	1679067268544178436	CMakeFiles/Colectie.dir/Colectie.cpp.o	e29cf8b0667b798b
+401	3431	1679065741964128184	CMakeFiles/Colectie.dir/TestScurt.cpp.o	32f5169ee295c335
+1	162	1679065955936135227	CMakeFiles/Colectie.dir/TestExtins.cpp.o	c9969478a91e8dac
+1	73	1679063944244069005	CMakeFiles/Colectie.dir/main.cpp.o	fba82fe2f002ced5
+334	427	1679067268636178440	Colectie	5420e0455485eba4
+3431	3504	1679065742040128186	CMakeFiles/Colectie.dir/IteratorColectie.cpp.o	5cf9fb00c3637478
