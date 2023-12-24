@@ -1,0 +1,172 @@
+        -:    0:Source:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/TestScurt.cpp
+        -:    0:Graph:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug-coverage/CMakeFiles/DictionarLDI.dir/TestScurt.cpp.gcno
+        -:    0:Data:/home/florin/FMI/SEM2/SDA/Lab4/DictionarLDI/cmake-build-debug-coverage/CMakeFiles/DictionarLDI.dir/TestScurt.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <assert.h>
+        -:    2:
+        -:    3:#include "DO.h"
+        -:    4:#include "Iterator.h"
+        -:    5:
+        -:    6:#include <exception>
+        -:    7:using namespace std;
+        -:    8:
+function _Z8relatie1ii called 4 returned 100% blocks executed 75%
+        4:    9:bool relatie1(TCheie cheie1, TCheie cheie2) {
+        4:   10:	if (cheie1 <= cheie2) {
+        4:   10-block  0
+branch  0 taken 4 (fallthrough)
+branch  1 taken 0
+        4:   11:		return true;
+        4:   11-block  0
+        -:   12:	}
+        -:   13:	else {
+    #####:   14:		return false;
+    %%%%%:   14-block  0
+        -:   15:	}
+        -:   16:}
+        -:   17:
+function _Z7testAllv called 1 returned 100% blocks executed 71%
+        1:   18:void testAll(){
+        1:   19:	DO dictOrd = DO(relatie1);
+        1:   19-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   20:	assert(dictOrd.dim() == 0);
+        1:   20-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   20-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   20-block  2
+call    5 never executed
+       1*:   21:	assert(dictOrd.vid());
+        1:   21-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   21-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   21-block  2
+call    5 never executed
+        1:   22:    dictOrd.adauga(1,2);
+        1:   22-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   23:    assert(dictOrd.dim() == 1);
+        1:   23-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   23-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   23-block  2
+call    5 never executed
+       1*:   24:    assert(!dictOrd.vid());
+        1:   24-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   24-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   24-block  2
+call    5 never executed
+       1*:   25:    assert(dictOrd.cauta(1)!=NULL_TVALOARE);
+        1:   25-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   25-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   25-block  2
+call    5 never executed
+        1:   26:    TValoare v =dictOrd.adauga(1,3);
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   27:    assert(v == 2);
+        1:   27-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   27-block  1
+call    2 never executed
+       1*:   28:    assert(dictOrd.cauta(1) == 3);
+        1:   28-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   28-block  2
+call    5 never executed
+        1:   29:    Iterator it = dictOrd.iterator();
+        1:   29-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   30:    it.prim();
+        1:   30-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   31:    while (it.valid()){
+        1:   31-block  0
+        2:   31-block  1
+call    0 returned 2
+branch  1 taken 2 (fallthrough)
+branch  2 taken 0 (throw)
+        2:   31-block  2
+branch  3 taken 1
+branch  4 taken 1 (fallthrough)
+        1:   32:    	TElem e = it.element();
+        1:   32-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   33:    	assert(e.second != NULL_TVALOARE);
+        1:   33-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 1
+    %%%%%:   33-block  1
+call    2 never executed
+        1:   34:    	it.urmator();
+        1:   34-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   35:    }
+       1*:   36:    assert(dictOrd.sterge(1) == 3);
+        1:   36-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   36-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   36-block  2
+call    5 never executed
+       1*:   37:    assert(dictOrd.vid());
+        1:   37-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   37-block  1
+branch  3 taken 0 (fallthrough)
+branch  4 taken 1
+    %%%%%:   37-block  2
+call    5 never executed
+        1:   38:}
+        1:   38-block  0
+call    0 returned 1
+    $$$$$:   38-block  1
+call    1 never executed
+        -:   39:

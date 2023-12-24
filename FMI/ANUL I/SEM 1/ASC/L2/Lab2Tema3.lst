@@ -1,0 +1,84 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; ...
+    14 00000000 F5                          a db 245
+    15 00000001 C0                          b db 192
+    16 00000002 D4                          c db 212
+    17 00000003 344D                        d dw 19764
+    18 00000005 0A                          c1 db 10
+    19 00000006 02                          c2 db 2
+    20 00000007 9B                          d2 db 155
+    21 00000008 0D2A                        e dw 10765
+    22 0000000A 2965                        f dw 25897
+    23 0000000C 25A3                        g dw 41765
+    24 0000000E 6825                        h dw 9576
+    25 00000010 0000                        rez1 dw 0
+    26 00000012 00000000                    rez2 dd 0
+    27                                  
+    28                                  ; our code starts here
+    29                                  segment code use32 class=code
+    30                                      start:
+    31                                          ; ...
+    32                                          ;I.[(10+d)-(a*a-2*b)]/c
+    33                                          ;1.10+d
+    34 00000000 660FB61D[05000000]              movzx bx, byte[c1] 
+    35 00000008 66031D[03000000]                add bx, [d]
+    36                                          ;2. 2*b in cx
+    37 0000000F A0[06000000]                    mov al, [c2]
+    38 00000014 F625[01000000]                  mul byte[b]
+    39 0000001A 6689C1                          mov cx, ax
+    40                                          ;3. a*a
+    41 0000001D 660FB605[00000000]              movzx ax, byte[a]
+    42 00000025 F625[00000000]                  mul byte[a]
+    43                                          ;4. a*a-2*b
+    44 0000002B 6629C8                          sub ax, cx
+    45                                          ;5. (10+d)-(a*a-2*b)
+    46 0000002E 6629C3                          sub bx, ax
+    47 00000031 6689D8                          mov ax, bx
+    48                                          ;6.(10+d)-(a*a-2*b)/c
+    49 00000034 F635[02000000]                  div byte[c]
+    50 0000003A A2[11000000]                    mov byte[rez1+1], al
+    51 0000003F 8825[10000000]                  mov byte[rez1+0], ah
+    52                                          
+    53                                          
+    54                                          ;II.(f*g-a*b*e)/(h+c*d2)
+    55                                          ;1.h + c * d2
+    56 00000045 66A1[02000000]                  mov ax, [c]
+    57 0000004B F625[07000000]                  mul byte[d2]
+    58 00000051 660305[0E000000]                add ax, [h]
+    59 00000058 6689C3                          mov bx, ax
+    60                                          ;2. a*b*e in ecx
+    61 0000005B 66A1[00000000]                  mov ax, [a]
+    62 00000061 F625[01000000]                  mul byte[b]
+    63 00000067 66F725[08000000]                mul word[e]
+    64 0000006E 66A3[12000000]                  mov word[rez2+0],  ax
+    65 00000074 668915[14000000]                mov word[rez2+2], dx
+    66 0000007B 8B0D[12000000]                  mov ecx, [rez2]
+    67                                          ;3.f*g
+    68 00000081 66A1[0A000000]                  mov ax, [f]
+    69 00000087 66F725[0C000000]                mul word[g]
+    70 0000008E 66A3[12000000]                  mov word[rez2+0], ax
+    71 00000094 668915[14000000]                mov word[rez2+2], dx
+    72                                          ;4.f*g-a*b*e
+    73 0000009B 290D[12000000]                  sub [rez2], ecx
+    74                                          ;5.(f*g-a*b*e)/(h+c*d2)
+    75 000000A1 668B15[14000000]                mov dx, word[rez2+2]
+    76 000000A8 66A1[12000000]                  mov ax, word[rez2+0]
+    77 000000AE 66F7F3                          div bx
+    78 000000B1 668915[12000000]                mov word[rez2+0], dx
+    79 000000B8 66A3[14000000]                  mov word[rez2+2], ax
+    80 000000BE 8B1D[12000000]                  mov ebx, [rez2]
+    81 000000C4 0FB705[10000000]                movzx eax, word[rez1]
+    82                                          ; exit(0)
+    83 000000CB 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    84 000000CD FF15[00000000]                  call    [exit]       ; call exit to terminate the program

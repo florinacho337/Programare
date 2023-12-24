@@ -1,0 +1,48 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13                                      ; Se dau doua siruri de caractere S1 si S2. Sa se construiasca sirul D prin concatenarea 
+    14                                      ; elementelor de pe pozitiile multiplu de 3 din sirul S1 cu elementele sirului S2 in ordine inversa.
+    15 00000000 2B34326138345835            s1 db '+', '4', '2', 'a', '8', '4', 'X', '5'
+    16                                      ls1 equ $-s1
+    17 00000008 613435                      s2 db 'a', '4', '5'
+    18                                      ls2 equ $-s2
+    19 0000000B <res 00000006>              d resb (ls1+2) / 3 + ls2
+    20                                  
+    21                                  ; our code starts here
+    22                                  segment code use32 class=code
+    23                                      start:
+    24                                          ; ...
+    25 00000000 BE[00000000]                    mov esi, s1 ; adresa lui s1
+    26 00000005 B901000000                      mov ecx, 1
+    27 0000000A BF[0B000000]                    mov edi, d ; adresa lui d
+    28                                          repeta1:
+    29 0000000F 8A06                                mov al, [esi]
+    30 00000011 8807                                mov [edi], al; se adauga elementul de la adresa esi in sirul d pe pozitia de la adresa edi
+    31 00000013 83C603                              add esi, 3 
+    32 00000016 47                                  inc edi 
+    33 00000017 83C103                              add ecx, 3
+    34 0000001A 83F908                              cmp ecx, ls1
+    35 0000001D 76F0                            jbe repeta1
+    36                                           
+    37 0000001F BE[0A000000]                    mov esi, s2 + ls2 - 1
+    38 00000024 B903000000                      mov ecx, ls2
+    39                                          repeta2:
+    40 00000029 8A06                                mov al, [esi]
+    41 0000002B 8807                                mov [edi], al ; se adauga elementul de la adresa esi in sirul d pe pozitia de la adresa edi
+    42 0000002D 47                                  inc edi
+    43 0000002E 4E                                  dec esi
+    44 0000002F E2F8                            loop repeta2
+    45                                          ;D: '+', 'a', 'X', '5', '4', 'a'
+    46                                          ; exit(0)
+    47 00000031 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    48 00000033 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
