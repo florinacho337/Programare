@@ -22,3 +22,11 @@
     * [Social Network in Java](https://github.com/florinacho337/MAPproject "Social Network in Java")
     * [Seminaries](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/MAP/Seminarii "Seminaries")
     * [C# Project - Purchases and Invoices](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/MAP/Facturi "C# Project")
+ 
+  ```c#
+  while(doubt){
+   exercise();
+   if (tired) break;
+   sweat_it_out();
+  }
+  ```
