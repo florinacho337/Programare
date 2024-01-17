@@ -1,0 +1,6 @@
+/home/florin/FMI/MAP/Seminar11/Seminar11/bin/Debug/Seminar11.exe
+/home/florin/FMI/MAP/Seminar11/Seminar11/bin/Debug/Seminar11.pdb
+/home/florin/FMI/MAP/Seminar11/Seminar11/obj/Debug/Seminar11.csproj.AssemblyReference.cache
+/home/florin/FMI/MAP/Seminar11/Seminar11/obj/Debug/Seminar11.csproj.CoreCompileInputs.cache
+/home/florin/FMI/MAP/Seminar11/Seminar11/obj/Debug/Seminar11.exe
+/home/florin/FMI/MAP/Seminar11/Seminar11/obj/Debug/Seminar11.pdb

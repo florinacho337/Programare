@@ -1,0 +1,6 @@
+/home/florin/FMI/MAP/Facturi/Facturi/bin/Debug/Facturi.exe
+/home/florin/FMI/MAP/Facturi/Facturi/bin/Debug/Facturi.pdb
+/home/florin/FMI/MAP/Facturi/Facturi/obj/Debug/Facturi.csproj.AssemblyReference.cache
+/home/florin/FMI/MAP/Facturi/Facturi/obj/Debug/Facturi.csproj.CoreCompileInputs.cache
+/home/florin/FMI/MAP/Facturi/Facturi/obj/Debug/Facturi.exe
+/home/florin/FMI/MAP/Facturi/Facturi/obj/Debug/Facturi.pdb
