@@ -4,12 +4,12 @@
 
 * ### First Semester
   * [Computer Arhitecture](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/ASC "Computer Arhitecture") (Assembly and C)
-  * [Programming Fundamentals](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/Fundamentele%20programarii "Programming Fundamentals") (Python)
+  * [Programming Fundamentals](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/Fundamentele%20programarii "Programming Fundamentals") (Python) - Movie Rentals and Family Expenses
   * [C Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/ProgramareC "C Programming") (C)
 
 * ### Second Semester
   * [Graph Theory](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%202/Algoritmica%20Grafelor/Laborator "Graph Theory") (C++)
-  * [Object Oriented Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%202/OOP/Lab%205 "Object Oriented Programming") (C++)
+  * [Object Oriented Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%202/OOP/Lab%205 "Object Oriented Programming") (C++) - Library
   * [Data Structures and Algorithms](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%202/SDA "Data Structures and Algorithms") (C++)
  
 ## Second Year
