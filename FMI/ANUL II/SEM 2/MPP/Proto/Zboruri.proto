@@ -1,0 +1,62 @@
+syntax = "proto3";
+package zboruri.protocol;
+
+option java_package = "ro.mpp2024";
+option java_outer_classname = "ZboruriProtobufs";
+option csharp_namespace = "Networking";
+
+service ZboruriService {
+	rpc Login(Angajat) returns (Response);
+	rpc Logout(Angajat) returns (Response);
+	rpc FindZboruriDestDateAndMinSeats(RequestFindZboruri) returns (ResponseFindZboruri);
+	rpc FindZboruri(Empty) returns (ResponseFindZboruri);
+	rpc CumparaBilet(RequestCumparaBilet) returns (BiletCumparat);
+	rpc FindZbor(RequestFindZbor) returns (Zbor);
+}
+
+message Angajat {
+    	string username = 1;
+	string parola = 2;
+}
+
+message Zbor {
+    	string aeroport = 1;
+    	string destinatie = 2;
+    	string plecare = 3;
+    	int32 nrLocuri = 4;
+    	int32 id = 5;
+}
+
+message Empty{}
+
+message RequestFindZboruri {
+    	string dest = 1;
+    	string date = 2;
+    	int32 min = 3;
+}
+
+message RequestCumparaBilet {
+    	string client = 1;
+    	string tara = 2;
+    	string oras = 3;
+    	repeated string turisti = 4;
+    	int32 nrLocuri = 5;
+    	Zbor zbor = 6;
+}
+
+message BiletCumparat {
+	Zbor newZbor = 1;
+	Zbor oldZbor = 2;
+}
+
+message ResponseFindZboruri {
+	repeated Zbor flights = 1;
+}
+
+message Response {
+	string errorMessage = 1;
+}
+
+message RequestFindZbor {
+	int32 id = 1;
+}

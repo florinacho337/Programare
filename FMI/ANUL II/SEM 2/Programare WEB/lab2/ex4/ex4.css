@@ -1,0 +1,102 @@
+#navlist{
+	height: 924px;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#navlist li, #navlist a{
+	flex-grow: 1;
+	display: flex;
+	width: 84px;
+}
+
+#fb{
+	background: url('sprites.png') 0 84px;
+}
+
+#puncte{
+	background: url('sprites.png') -84px 84px;
+}
+
+#minge{
+	background: url('sprites.png') -168px 84px;
+}
+
+#google{
+	background: url('sprites.png') -252px 84px;
+}
+
+#linkedin{
+	background: url('sprites.png') -336px 84px;
+}
+
+#pinterest{
+	background: url('sprites.png') -420px 84px;
+}
+
+#wifi{
+	background: url('sprites.png') -504px 84px;
+}
+
+#skype{
+	background: url('sprites.png') -588px 84px;
+}
+
+#twitter{
+	background: url('sprites.png') -672px 84px;
+}
+
+#v{
+	background: url('sprites.png') -756px 84px;
+}
+
+#ytb{
+	background: url('sprites.png') -840px 84px;
+}
+
+#fb a:hover{
+	background: url('sprites.png') 0 0;
+}
+
+#puncte a:hover{
+	background: url('sprites.png') -84px 0;
+}
+
+#minge a:hover{
+	background: url('sprites.png') -168px 0;
+}
+
+#google a:hover{
+	background: url('sprites.png') -252px 0;
+}
+
+#linkedin a:hover{
+	background: url('sprites.png') -336px 0;
+}
+
+#pinterest a:hover{
+	background: url('sprites.png') -420px 0;
+}
+
+#wifi a:hover{
+	background: url('sprites.png') -504px 0;
+}
+
+#skype a:hover{
+	background: url('sprites.png') -588px 0;
+}
+
+#twitter a:hover{
+	background: url('sprites.png') -672px 0;
+}
+
+#v a:hover{
+	background: url('sprites.png') -756px 0;
+}
+
+#ytb a:hover{
+	background: url('sprites.png') -840px 0;
+}
