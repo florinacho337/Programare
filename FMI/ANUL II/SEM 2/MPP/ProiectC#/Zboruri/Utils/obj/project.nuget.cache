@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZzO+TWhGKkADk0kqlXoq8eLOdGVYHCE0w55HXjR8bj58+p2bU8ho++APHyoXZRAawKZnq/3/dR1BN8cIkPTu5w==",
+  "success": true,
+  "projectFilePath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/Utils.csproj",
+  "expectedPackageFiles": [
+    "/home/florin/.nuget/packages/mono.data.sqlite/1.0.61/mono.data.sqlite.1.0.61.nupkg.sha512",
+    "/home/florin/.nuget/packages/sqlite/3.13.0/sqlite.3.13.0.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.configuration.configurationmanager/9.0.0-preview.3.24172.9/system.configuration.configurationmanager.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.diagnostics.eventlog/9.0.0-preview.3.24172.9/system.diagnostics.eventlog.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.security.cryptography.protecteddata/9.0.0-preview.3.24172.9/system.security.cryptography.protecteddata.9.0.0-preview.3.24172.9.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Mono.Data.Sqlite 1.0.61' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Mono.Data.Sqlite",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

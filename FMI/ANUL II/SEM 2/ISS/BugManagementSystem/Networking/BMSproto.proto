@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "Networking";
+
+message Employee {
+  string username = 1;
+  string name = 2;
+  string password = 3;
+  enum Role {
+    Validator = 0;
+    Programmer = 1;
+  }
+  Role role = 4;
+}
+
+message Request {
+  enum Type {GetEmployees = 0; AddEmployee = 1; RemoveEmployee = 2;}
+  Type type = 1;
+  oneof payload {
+    Employee employee = 2;
+    string username = 3;
+  }
+}
+
+message Response {
+  enum Type {Ok = 0; Error = 1; GetEmployees = 2; AddEmployee = 3; RemoveEmployee = 4;}
+  Type type = 1;
+  string message = 2;
+  repeated Employee employees = 3;
+}

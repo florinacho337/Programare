@@ -1,0 +1,10 @@
+rootProject.name = "Zboruri"
+include 'ZboruriModel'
+include 'ZboruriPersistence'
+include 'ZboruriServices'
+include 'ZboruriNetworking'
+include 'ZboruriServer'
+include 'ZboruriClient'
+include 'ZboruriUtils'
+include 'ThriftNetworking'
+

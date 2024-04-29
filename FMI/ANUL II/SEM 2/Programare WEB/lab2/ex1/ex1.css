@@ -1,0 +1,26 @@
+#main{
+	display: flex;
+}
+#main div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	max-width: 200px;
+	border-style: solid;
+}
+#stanga{
+	border-width: 1px 0px 1px 1px;
+}
+
+#dreapta{
+	border-width: 1px 1px 1px 0px;
+}
+
+#stanga p{
+	text-align: center;
+}
+
+#dreapta img{
+	max-width: inherit;
+}

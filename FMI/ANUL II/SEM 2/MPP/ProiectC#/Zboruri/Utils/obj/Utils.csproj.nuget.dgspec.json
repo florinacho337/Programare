@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/Utils.csproj": {}
+  },
+  "projects": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/Utils.csproj",
+        "projectName": "Utils",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/Utils.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Utils/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Mono.Data.Sqlite": {
+              "target": "Package",
+              "version": "[1.0.61, )"
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

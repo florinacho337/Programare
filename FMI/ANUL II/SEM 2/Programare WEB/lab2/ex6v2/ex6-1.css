@@ -1,0 +1,41 @@
+input{
+	background-image: url('patratica1.jpg');
+	width: 600px;
+	height: 30px;
+    background-size: 30px;
+    font-family: monospace;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 15px;
+    text-transform: uppercase;
+}
+
+#cnp{
+	width: 390px;
+}
+
+p{
+	font-size: 20px;
+}
+
+#mode a{
+	display: flex;
+	flex-grow: 1;
+	height: 100px;
+}
+
+#mode{
+	height: 74px;
+	width: 74px;
+	background: url('darkmode.webp') -180px -94px;
+	border: 1px solid;
+	border-radius: 90px;
+}
+
+#mode:hover{
+	height: 74px;
+	width: 74px;
+	background: url('darkmode.webp') 155px -94px;
+	border: 1px solid;
+	border-radius: 90px;
+}

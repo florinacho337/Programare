@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Model/Model.csproj": {}
+  },
+  "projects": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Model/Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Model/Model.csproj",
+        "projectName": "Model",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Model/Model.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Model/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.18, 7.0.18]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

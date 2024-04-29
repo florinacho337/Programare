@@ -1,0 +1,530 @@
+{
+  "version": 3,
+  "targets": {
+    "net8.0": {
+      "AtkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/AtkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/AtkSharp.dll": {}
+        }
+      },
+      "CairoSharp/3.24.24.117-develop": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/CairoSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/CairoSharp.dll": {}
+        }
+      },
+      "GdkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop",
+          "GioSharp": "3.24.24.117-develop",
+          "PangoSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GdkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GdkSharp.dll": {}
+        }
+      },
+      "GioSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GioSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GioSharp.dll": {}
+        }
+      },
+      "GLibSharp/3.24.24.117-develop": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/GLibSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GLibSharp.dll": {}
+        }
+      },
+      "GtkSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "AtkSharp": "3.24.24.117-develop",
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop",
+          "GdkSharp": "3.24.24.117-develop",
+          "GioSharp": "3.24.24.117-develop",
+          "PangoSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/GtkSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/GtkSharp.dll": {}
+        },
+        "build": {
+          "build/GtkSharp.targets": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "PangoSharp/3.24.24.117-develop": {
+        "type": "package",
+        "dependencies": {
+          "CairoSharp": "3.24.24.117-develop",
+          "GLibSharp": "3.24.24.117-develop"
+        },
+        "compile": {
+          "lib/net8.0/PangoSharp.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/PangoSharp.dll": {}
+        }
+      },
+      "System.Configuration.ConfigurationManager/9.0.0-preview.3.24172.9": {
+        "type": "package",
+        "dependencies": {
+          "System.Diagnostics.EventLog": "9.0.0-preview.3.24172.9",
+          "System.Security.Cryptography.ProtectedData": "9.0.0-preview.3.24172.9"
+        },
+        "compile": {
+          "lib/net8.0/System.Configuration.ConfigurationManager.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Configuration.ConfigurationManager.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "System.Diagnostics.EventLog/9.0.0-preview.3.24172.9": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Diagnostics.EventLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Diagnostics.EventLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.Messages.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          },
+          "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
+      "System.Security.Cryptography.ProtectedData/9.0.0-preview.3.24172.9": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Security.Cryptography.ProtectedData.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Security.Cryptography.ProtectedData.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "System.Configuration.ConfigurationManager": "9.0.0-preview.3.24172.9"
+        },
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
+      },
+      "Networking/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3",
+          "Services": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Networking.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Networking.dll": {}
+        }
+      },
+      "Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Model": "1.0.0",
+          "System.Configuration.ConfigurationManager": "9.0.0-preview.3.24172.9"
+        },
+        "compile": {
+          "bin/placeholder/Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Services.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AtkSharp/3.24.24.117-develop": {
+      "sha512": "LqhUEqLkNC4Uybx/IKQenGDSvDFrjGE6w9uQ1zZwyHuGyDSZhiqeg6PyzU1FaQ3NF+uGwbFxDcDYJCVM2JoTpw==",
+      "type": "package",
+      "path": "atksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "atksharp.3.24.24.117-develop.nupkg.sha512",
+        "atksharp.nuspec",
+        "lib/net8.0/AtkSharp.dll",
+        "lib/netstandard2.0/AtkSharp.dll"
+      ]
+    },
+    "CairoSharp/3.24.24.117-develop": {
+      "sha512": "5zsEUuksviQPiZHdXyiuzVbn2wVnaBURTyENkVmZuHzr5T8mONAm+15LUu19Z3xbFCKx0CH4GJzuO7qW14nNQw==",
+      "type": "package",
+      "path": "cairosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cairosharp.3.24.24.117-develop.nupkg.sha512",
+        "cairosharp.nuspec",
+        "lib/net8.0/CairoSharp.dll",
+        "lib/netstandard2.0/CairoSharp.dll"
+      ]
+    },
+    "GdkSharp/3.24.24.117-develop": {
+      "sha512": "M7N7gMqjrW2NnAWcqR2E5/x5JUuz2jT3mFTTD7raHWF6llW7fiP3zxJfIiJHwHIOjSd8pfu7G8bVdCHwAd8t8g==",
+      "type": "package",
+      "path": "gdksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "gdksharp.3.24.24.117-develop.nupkg.sha512",
+        "gdksharp.nuspec",
+        "lib/net8.0/GdkSharp.dll",
+        "lib/netstandard2.0/GdkSharp.dll"
+      ]
+    },
+    "GioSharp/3.24.24.117-develop": {
+      "sha512": "PxXTbBumyzJHt/h6qED0MYO3vEAY4vBHbgDrWFp1Kap5uUSpIMV8GPH2UaswX0wEtgdkMrVdhYGdeSllMwHWHw==",
+      "type": "package",
+      "path": "giosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "giosharp.3.24.24.117-develop.nupkg.sha512",
+        "giosharp.nuspec",
+        "lib/net8.0/GioSharp.dll",
+        "lib/netstandard2.0/GioSharp.dll"
+      ]
+    },
+    "GLibSharp/3.24.24.117-develop": {
+      "sha512": "NPHNJBR0FTZRMREP7ZtdFOlPFTRJwecYSCIWiJMvRybasH5xyavf7UmPkMzrGGJdt5ne4ZEZ3Yj+uOcqVKnkqg==",
+      "type": "package",
+      "path": "glibsharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "glibsharp.3.24.24.117-develop.nupkg.sha512",
+        "glibsharp.nuspec",
+        "lib/net8.0/GLibSharp.dll",
+        "lib/netstandard2.0/GLibSharp.dll"
+      ]
+    },
+    "GtkSharp/3.24.24.117-develop": {
+      "sha512": "qc4oBmHw4VoMk+tTurM6g2FRCl8yot/oOAy9ytmvzQ2+zI9T/SLF+Q534R1q8z3uz4q9sm46QOJOQOfAyOlKnQ==",
+      "type": "package",
+      "path": "gtksharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/GtkSharp.targets",
+        "gtksharp.3.24.24.117-develop.nupkg.sha512",
+        "gtksharp.nuspec",
+        "lib/net8.0/GtkSharp.dll",
+        "lib/netstandard2.0/GtkSharp.dll"
+      ]
+    },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
+    "PangoSharp/3.24.24.117-develop": {
+      "sha512": "WycHWMa+cd07LrbFMi4ulvFYbzz2WrjNw2F2MsJTZKW63J7Yxw9gHA5vMAkF6h/jT0beAi0+0FLqDyFm4xJszg==",
+      "type": "package",
+      "path": "pangosharp/3.24.24.117-develop",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net8.0/PangoSharp.dll",
+        "lib/netstandard2.0/PangoSharp.dll",
+        "pangosharp.3.24.24.117-develop.nupkg.sha512",
+        "pangosharp.nuspec"
+      ]
+    },
+    "System.Configuration.ConfigurationManager/9.0.0-preview.3.24172.9": {
+      "sha512": "runfNU7hYhiU7KtXidbvbTKcSHgzRQRjuc6spGbYRAIeqVljo17sNvSpql+5c/ujzR5RRmj7KFvkeq0d3B7PsA==",
+      "type": "package",
+      "path": "system.configuration.configurationmanager/9.0.0-preview.3.24172.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Configuration.ConfigurationManager.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Configuration.ConfigurationManager.targets",
+        "lib/net462/System.Configuration.ConfigurationManager.dll",
+        "lib/net462/System.Configuration.ConfigurationManager.xml",
+        "lib/net8.0/System.Configuration.ConfigurationManager.dll",
+        "lib/net8.0/System.Configuration.ConfigurationManager.xml",
+        "lib/net9.0/System.Configuration.ConfigurationManager.dll",
+        "lib/net9.0/System.Configuration.ConfigurationManager.xml",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.9.0.0-preview.3.24172.9.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Diagnostics.EventLog/9.0.0-preview.3.24172.9": {
+      "sha512": "OzGq8i0n5iP6ccBkVVIS4HQw3GALSWsAPscZ8ult97sUuNc8e97dH4ZB3XNf2eGev4ajSxBOM6yl9KJFLKrwcA==",
+      "type": "package",
+      "path": "system.diagnostics.eventlog/9.0.0-preview.3.24172.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Diagnostics.EventLog.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Diagnostics.EventLog.targets",
+        "lib/net462/System.Diagnostics.EventLog.dll",
+        "lib/net462/System.Diagnostics.EventLog.xml",
+        "lib/net8.0/System.Diagnostics.EventLog.dll",
+        "lib/net8.0/System.Diagnostics.EventLog.xml",
+        "lib/net9.0/System.Diagnostics.EventLog.dll",
+        "lib/net9.0/System.Diagnostics.EventLog.xml",
+        "lib/netstandard2.0/System.Diagnostics.EventLog.dll",
+        "lib/netstandard2.0/System.Diagnostics.EventLog.xml",
+        "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.Messages.dll",
+        "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.dll",
+        "runtimes/win/lib/net8.0/System.Diagnostics.EventLog.xml",
+        "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.Messages.dll",
+        "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.dll",
+        "runtimes/win/lib/net9.0/System.Diagnostics.EventLog.xml",
+        "system.diagnostics.eventlog.9.0.0-preview.3.24172.9.nupkg.sha512",
+        "system.diagnostics.eventlog.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.Security.Cryptography.ProtectedData/9.0.0-preview.3.24172.9": {
+      "sha512": "gabqUZPA1uToMV1QOjulFSJm0Zg2C64ibAeSXCMbN0gMfcAMKL4ckTJyBvj5hcV7iBTGz4QjEVZHDe4Isoh5Vg==",
+      "type": "package",
+      "path": "system.security.cryptography.protecteddata/9.0.0-preview.3.24172.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Security.Cryptography.ProtectedData.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Security.Cryptography.ProtectedData.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net462/System.Security.Cryptography.ProtectedData.xml",
+        "lib/net8.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net8.0/System.Security.Cryptography.ProtectedData.xml",
+        "lib/net9.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net9.0/System.Security.Cryptography.ProtectedData.xml",
+        "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "system.security.cryptography.protecteddata.9.0.0-preview.3.24172.9.nupkg.sha512",
+        "system.security.cryptography.protecteddata.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
+    },
+    "Networking/1.0.0": {
+      "type": "project",
+      "path": "../Networking/Networking.csproj",
+      "msbuildProject": "../Networking/Networking.csproj"
+    },
+    "Services/1.0.0": {
+      "type": "project",
+      "path": "../Services/Services.csproj",
+      "msbuildProject": "../Services/Services.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net8.0": [
+      "GtkSharp >= 3.24.24.117-develop",
+      "Networking >= 1.0.0",
+      "Services >= 1.0.0",
+      "System.Configuration.ConfigurationManager >= 9.0.0-preview.3.24172.9"
+    ]
+  },
+  "packageFolders": {
+    "/home/florin/.nuget/packages/": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Client/Client.csproj",
+      "projectName": "Client",
+      "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Client/Client.csproj",
+      "packagesPath": "/home/florin/.nuget/packages/",
+      "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Client/obj/",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "/home/florin/.nuget/NuGet/NuGet.Config"
+      ],
+      "originalTargetFrameworks": [
+        "net8.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "projectReferences": {
+            "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Networking/Networking.csproj": {
+              "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Networking/Networking.csproj"
+            },
+            "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Services/Services.csproj": {
+              "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectC#/Zboruri/Services/Services.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net8.0": {
+        "targetAlias": "net8.0",
+        "dependencies": {
+          "GtkSharp": {
+            "target": "Package",
+            "version": "[3.24.24.117-develop, )"
+          },
+          "System.Configuration.ConfigurationManager": {
+            "target": "Package",
+            "version": "[9.0.0-preview.3.24172.9, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.204/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
