@@ -22,6 +22,12 @@
     * [Social Network in Java](https://github.com/florinacho337/MAPproject "Social Network in Java")
     * [Seminaries](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%201/MAP/Seminarii "Seminaries")
     * [C# Project - Purchases and Invoices](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%201/MAP/Facturi "C# Project")
+
+ * ### Second Semester
+   * [Software Engineering](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/ISS "Software Engineering") (C#) - Bug Management System application
+   * [Artificial Intelligence](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/AI "Artificial Intelligence") (Python)
+   * [Web Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/Programare%20WEB "Web Programming") (HTML, CSS, JS and other frameworks)
+   * [Programming Systems and Environments](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/MPP "Programming Systems and Environments") (C# and Java) - Flights booking application
  
   ```c#
   while(doubt){
