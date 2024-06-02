@@ -4,7 +4,7 @@ using Services;
 
 namespace Networking;
 
-public class BmsWorker : IbmsObserver
+public class BmsWorker : IBmsObserver
 {
     private readonly IBmsServices _server;
     private readonly TcpClient _connection;
@@ -125,6 +125,117 @@ public class BmsWorker : IbmsObserver
                     return ProtoUtils.CreateErrorResponse(e.Message);
                 }
             }
+            case Request.Types.Type.GetBugs:
+            {
+                Console.WriteLine("GetBugs request ...");
+                try
+                {
+                    List<Model.Bug> bugs;
+                    lock (_server)
+                    {
+                        bugs = _server.GetAllBugs();
+                    }
+
+                    return ProtoUtils.CreateGetBugsResponse(bugs);
+                }
+                catch (BmsException e)
+                {
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
+            case Request.Types.Type.Login:
+            {
+                Console.WriteLine("Login request ...");
+                var employee = ProtoUtils.GetEmployee(request);
+                Model.Employee foundEmployee;
+                try
+                {
+                    lock (_server)
+                    {
+                        foundEmployee = _server.LogIn(employee, this);
+                    }
+
+                    return ProtoUtils.CreateSuccessfulLoginResponse(foundEmployee);
+                }
+                catch (BmsException e)
+                {
+                    _connected = false;
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
+            case Request.Types.Type.Logout:
+            {
+                Console.WriteLine("Logout request ...");
+                var employee = ProtoUtils.GetEmployee(request);
+                try
+                {
+                    lock (_server)
+                    {
+                        _server.LogOut(employee);
+                    }
+
+                    _connected = false;
+                    return ProtoUtils.CreateOkResponse();
+                }
+                catch (BmsException e)
+                {
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
+            case Request.Types.Type.AddBug:
+            {
+                Console.WriteLine("AddBug request ...");
+                var bug = ProtoUtils.GetBug(request);
+                try
+                {
+                    lock (_server)
+                    {
+                        _server.AddBug(bug);
+                    }
+
+                    return ProtoUtils.CreateOkResponse();
+                }
+                catch (BmsException e)
+                {
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
+            case Request.Types.Type.UpdateBug:
+            {
+                Console.WriteLine("UpdateBug request ...");
+                var bug = ProtoUtils.GetBug(request);
+                try
+                {
+                    lock (_server)
+                    {
+                        _server.UpdateBug(bug);
+                    }
+
+                    return ProtoUtils.CreateOkResponse();
+                }
+                catch (BmsException e)
+                {
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
+            case Request.Types.Type.RemoveBug:
+            {
+                Console.WriteLine("RemoveBug request ...");
+                var bug = ProtoUtils.GetBug(request);
+                try
+                {
+                    lock (_server)
+                    {
+                        _server.RemoveBug(bug);
+                    }
+
+                    return ProtoUtils.CreateOkResponse();
+                }
+                catch (BmsException e)
+                {
+                    return ProtoUtils.CreateErrorResponse(e.Message);
+                }
+            }
         }
 
         return null;
@@ -137,6 +248,46 @@ public class BmsWorker : IbmsObserver
         {
             response.WriteDelimitedTo(_stream);
             _stream.Flush();
+        }
+    }
+
+    // ----------------------------------------- NEW -----------------------------------------
+    public void BugAdded(Model.Bug bugREntity)
+    {
+        Response response = ProtoUtils.CreateBugAddedResponse(bugREntity);
+        try
+        {
+            SendResponse(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+
+    public void BugUpdated(Model.Bug newBug)
+    {
+        Response response = ProtoUtils.CreateBugUpdatedResponse(newBug);
+        try
+        {
+            SendResponse(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
+        }
+    }
+
+    public void BugRemoved(Model.Bug bug)
+    {
+        Response response = ProtoUtils.CreateBugRemovedResponse(bug);
+        try
+        {
+            SendResponse(response);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.StackTrace);
         }
     }
 }

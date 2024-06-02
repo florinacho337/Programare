@@ -41,8 +41,8 @@ public static class StartClient
 
         Console.WriteLine("Using  server on IP {0} and port {1}", ip, port);
         IBmsServices server = new BMSProxy(ip, port);
-        ClientCtrl ctrl = new ClientCtrl(server);
-        Window w = new AdminWindow(ctrl);
+        var ctrl = new ClientCtrl(server);
+        Window w = new LoginWindow(ctrl);
         w.ShowAll();
         Application.Run();
     }

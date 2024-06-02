@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Problema 5</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    
+    function loadDirectoryContent(path, element) {
+        $.ajax({
+            url: 'server.php',
+            type: 'GET',
+            data: { path: path },
+            dataType: 'json',
+            success: function(data) {
+                var list = $('<ul></ul>');
+                $.each(data.directories, function(i, directory) {
+                    var newPath = path === '.' ? directory : path + '/' + directory; // Adjusted path concatenation
+                    var li = $('<li></li>').text(directory).on('click', function() {
+                        loadDirectoryContent(newPath, li); // Use adjusted path
+                    });
+                    list.append(li);
+                });
+                $.each(data.files, function(i, file) {
+                    var li = $('<li></li>').text(file).on('click', function() {
+                        loadFileContent(path + '/' + file, li);
+                    });
+                    list.append(li);
+                });
+                $(element).append(list);
+            }
+        });
+    }
+
+
+    function loadFileContent(filePath, element) {
+        $.ajax({
+            url: 'server.php',
+            type: 'GET',
+            data: { file: filePath },
+            success: function(content) {
+                var contentDiv = $('<div></div>').text(content);
+                $(element).append(contentDiv);
+            }
+        });
+    }
+
+
+    loadDirectoryContent('.', 'body');
+});
+</script>
+</head>
+<body>
+</body>
+</html>

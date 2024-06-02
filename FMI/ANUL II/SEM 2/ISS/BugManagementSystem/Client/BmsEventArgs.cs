@@ -2,7 +2,8 @@ namespace Client;
 
 public enum BmsEvent
 {
-    EmployeeAdded, EmployeeRemoved
+    EmployeeAdded, EmployeeRemoved,
+    BugReported, BugUpdated, BugFixed
 };
 
 public class BmsEventArgs(BmsEvent angajatEvent, object data) : EventArgs

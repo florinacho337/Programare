@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable Table</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<table class="sortableTable">
+    <!-- horizontal table header -->
+    <tr>
+        <th>Fruits</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Apples</td>
+        <td>10</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Pears</td>
+        <td>5</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>Cherries</td>
+        <td>6</td>
+        <td>8</td>
+    </tr>
+</table>
+
+<table class="sortableTable">
+    <!-- horizontal table header -->
+    <tr>
+        <th>Fruits</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Apples</td>
+        <td>10</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Pears</td>
+        <td>5</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>Cherries</td>
+        <td>6</td>
+        <td>8</td>
+    </tr>
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="script.js">
+</script>
+
+</body>
+</html>

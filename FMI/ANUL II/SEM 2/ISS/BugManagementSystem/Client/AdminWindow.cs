@@ -8,15 +8,15 @@ namespace Client
     public class AdminWindow : Window
     {
         private readonly ClientCtrl _clientCtrl;
-        private readonly Entry _usernameEntry = new Entry { PlaceholderText = "Username" };
-        private readonly Entry _nameEntry = new Entry { PlaceholderText = "Name" };
-        private readonly Entry _passwordEntry = new Entry { PlaceholderText = "Password" };
-        private readonly ComboBoxText _roleComboBox = new ComboBoxText();
-        private readonly Button _exitButton = new Button("Exit");
-        private readonly Button _addButton = new Button("Add Employee");
-        private readonly Button _removeButton = new Button("Remove Employee");
-        private readonly TreeView _employeeTable = new TreeView();
-        private readonly ListStore _modelEmployees = new ListStore(typeof(string), typeof(string), typeof(string), typeof(string));
+        private readonly Entry _usernameEntry = new() { PlaceholderText = "Username" };
+        private readonly Entry _nameEntry = new() { PlaceholderText = "Name" };
+        private readonly Entry _passwordEntry = new() { PlaceholderText = "Password" };
+        private readonly ComboBoxText _roleComboBox = new();
+        private readonly Button _exitButton = new("Exit");
+        private readonly Button _addButton = new("Add Employee");
+        private readonly Button _removeButton = new("Remove Employee");
+        private readonly TreeView _employeeTable = new();
+        private readonly ListStore _modelEmployees = new(typeof(string), typeof(string), typeof(string), typeof(string));
 
         public AdminWindow(ClientCtrl clientCtrl) : base("Administration")
         {
@@ -28,10 +28,10 @@ namespace Client
         {
             SetDefaultSize(800, 400);
             DeleteEvent += HandleExit;
-            VBox vbox = new VBox(false, 10);
+            var vbox = new VBox(false, 10);
 
             // Add a label at the top
-            Label label = new Label("Employees");
+            var label = new Label("Employees");
             var fontDescription = Pango.FontDescription.FromString("Arial 32");
             label.ModifyFont(fontDescription);
             vbox.PackStart(label, false, false, 0);
@@ -41,7 +41,7 @@ namespace Client
             BuildEmployeeTable();
 
             // Add textfields for Username, Name, Password and a combobox for Role
-            HBox entryBox = new HBox(true, 10);
+            var entryBox = new HBox(true, 10);
             entryBox.PackStart(_usernameEntry, false, false, 0);
             entryBox.PackStart(_nameEntry, false, false, 0);
             entryBox.PackStart(_passwordEntry, false, false, 0);
@@ -50,7 +50,7 @@ namespace Client
 
             vbox.PackStart(entryBox, false, false, 0);
             // Add buttons for Exit, Add Employee, Remove Employee
-            HBox buttonBox = new HBox(false, 10);
+            var buttonBox = new HBox(false, 10);
             _exitButton.Clicked += HandleExit;
             _addButton.Clicked += HandleAdd;
             _removeButton.Clicked += HandleRemove;
@@ -65,17 +65,13 @@ namespace Client
 
         private void InitComboBox()
         {
-            ListStore listStore = new ListStore(typeof(string));
+            var listStore = new ListStore(typeof(string));
             listStore.AppendValues("Role");
             _roleComboBox.Model = listStore;
 
             foreach (Role role in Enum.GetValues(typeof(Role)))
-            {
                 if (role != Model.Role.Admin)
-                {
                     listStore.AppendValues(role.ToString());
-                }
-            }
 
             _roleComboBox.Active = 0;
         }
@@ -94,19 +90,19 @@ namespace Client
 
             _employeeTable.Model = _modelEmployees;
 
-            TreeViewColumn usernameColumn = new TreeViewColumn("Username", new CellRendererText(), "text", 0);
+            var usernameColumn = new TreeViewColumn("Username", new CellRendererText(), "text", 0);
             usernameColumn.Expand = true;
             _employeeTable.AppendColumn(usernameColumn);
 
-            TreeViewColumn nameColumn = new TreeViewColumn("Name", new CellRendererText(), "text", 1);
+            var nameColumn = new TreeViewColumn("Name", new CellRendererText(), "text", 1);
             nameColumn.Expand = true;
             _employeeTable.AppendColumn(nameColumn);
 
-            TreeViewColumn passwordColumn = new TreeViewColumn("Password", new CellRendererText(), "text", 2);
+            var passwordColumn = new TreeViewColumn("Password", new CellRendererText(), "text", 2);
             passwordColumn.Expand = true;
             _employeeTable.AppendColumn(passwordColumn);
 
-            TreeViewColumn roleColumn = new TreeViewColumn("Role", new CellRendererText(), "text", 3);
+            var roleColumn = new TreeViewColumn("Role", new CellRendererText(), "text", 3);
             roleColumn.Expand = true;
             _employeeTable.AppendColumn(roleColumn);
 
@@ -115,18 +111,19 @@ namespace Client
 
         private void HandleExit(object? sender, EventArgs e)
         {
+            _clientCtrl.Logout();
             _clientCtrl.UpdateEvent -= AdminUpdate;
-            _clientCtrl.Close();
-            Application.Quit();
+            var loginWindow = new LoginWindow(_clientCtrl);
+            loginWindow.ShowAll();
             Dispose();
         }
 
         private void HandleAdd(object? sender, EventArgs e)
         {
-            string username = _usernameEntry.Text;
-            string name = _nameEntry.Text;
-            string password = _passwordEntry.Text;
-            string role = _roleComboBox.ActiveText;
+            var username = _usernameEntry.Text;
+            var name = _nameEntry.Text;
+            var password = _passwordEntry.Text;
+            var role = _roleComboBox.ActiveText;
             try
             {
                 _clientCtrl.AddEmployee(username, name, password, role);
@@ -139,19 +136,16 @@ namespace Client
 
         private void HandleRemove(object? sender, EventArgs e)
         {
-            
-            if (_employeeTable.Selection.GetSelected(out var model, out var iter))
+            if (!_employeeTable.Selection.GetSelected(out var model, out var iter)) return;
+            var username = model.GetValue(iter, 0).ToString();
+            try
             {
-                string username = model.GetValue(iter, 0).ToString();
-                try
-                {
-                    _clientCtrl.RemoveEmployee(username);
-                    MessageAlert.ShowMessage("Employee removed successfully!");
-                }
-                catch (BmsException exception)
-                {
-                    MessageAlert.ShowErrorMessage(exception.Message);
-                }
+                _clientCtrl.RemoveEmployee(username);
+                MessageAlert.ShowMessage("Employee removed successfully!");
+            }
+            catch (BmsException exception)
+            {
+                MessageAlert.ShowErrorMessage(exception.Message);
             }
         }
 
@@ -179,6 +173,8 @@ namespace Client
 
                     break;
                 }
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
     }

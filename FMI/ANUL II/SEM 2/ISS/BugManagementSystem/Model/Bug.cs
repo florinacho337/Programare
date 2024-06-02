@@ -1,12 +1,22 @@
 namespace Model;
 
-public class Bug(string name, string description, Severity severity, string status)
-    : Entity<int>
+public class Bug : Entity<int>
 {
-    public string Name { get; set; } = name;
-    public string Description { get; set; } = description;
-    public Severity Severity { get; set; } = severity;
-    public string Status { get; set; } = status;
+    public Bug()
+    {
+    }
+    public Bug(string name, string description, Severity severity, string status)
+    {
+        Name = name;
+        Description = description;
+        Severity = severity;
+        Status = status;
+    }
+
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public Severity Severity { get; set; }
+    public string Status { get; set; }
 
     public override string ToString()
     {

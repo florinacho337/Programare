@@ -7,24 +7,43 @@ message Employee {
   string name = 2;
   string password = 3;
   enum Role {
-    Validator = 0;
-    Programmer = 1;
+    Admin = 0;
+    Validator = 1;
+    Programmer = 2;
   }
   Role role = 4;
 }
 
+message Bug {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  string status = 4;
+  enum Severity {
+    Low = 0;
+    Minor = 1;
+    Major = 2;
+    Critical = 3;
+  }
+  Severity severity = 5;
+}
+
 message Request {
-  enum Type {GetEmployees = 0; AddEmployee = 1; RemoveEmployee = 2;}
+  enum Type {GetEmployees = 0; AddEmployee = 1; RemoveEmployee = 2; GetBugs = 3; AddBug = 4; UpdateBug = 5; RemoveBug = 6; Login = 7; Logout = 8;}
   Type type = 1;
   oneof payload {
     Employee employee = 2;
     string username = 3;
+    Bug bug = 4;
   }
 }
 
 message Response {
-  enum Type {Ok = 0; Error = 1; GetEmployees = 2; AddEmployee = 3; RemoveEmployee = 4;}
+  enum Type {Ok = 0; Error = 1; GetEmployees = 2; AddEmployee = 3; RemoveEmployee = 4; GetBugs = 5; AddBug = 6; UpdateBug = 7; SuccessfulLogin = 8; RemoveBug = 9;}
   Type type = 1;
   string message = 2;
   repeated Employee employees = 3;
+  repeated Bug bugs = 4;
+  Bug bug = 5;
+  Employee employee = 6;
 }

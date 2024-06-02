@@ -24,24 +24,34 @@ namespace Networking {
     static BMSprotoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cg5CTVNwcm90by5wcm90byKBAQoIRW1wbG95ZWUSEAoIdXNlcm5hbWUYASAB",
+            "Cg5CTVNwcm90by5wcm90byKMAQoIRW1wbG95ZWUSEAoIdXNlcm5hbWUYASAB",
             "KAkSDAoEbmFtZRgCIAEoCRIQCghwYXNzd29yZBgDIAEoCRIcCgRyb2xlGAQg",
-            "ASgOMg4uRW1wbG95ZWUuUm9sZSIlCgRSb2xlEg0KCVZhbGlkYXRvchAAEg4K",
-            "ClByb2dyYW1tZXIQASKjAQoHUmVxdWVzdBIbCgR0eXBlGAEgASgOMg0uUmVx",
-            "dWVzdC5UeXBlEh0KCGVtcGxveWVlGAIgASgLMgkuRW1wbG95ZWVIABISCgh1",
-            "c2VybmFtZRgDIAEoCUgAIj0KBFR5cGUSEAoMR2V0RW1wbG95ZWVzEAASDwoL",
-            "QWRkRW1wbG95ZWUQARISCg5SZW1vdmVFbXBsb3llZRACQgkKB3BheWxvYWQi",
-            "qQEKCFJlc3BvbnNlEhwKBHR5cGUYASABKA4yDi5SZXNwb25zZS5UeXBlEg8K",
-            "B21lc3NhZ2UYAiABKAkSHAoJZW1wbG95ZWVzGAMgAygLMgkuRW1wbG95ZWUi",
-            "UAoEVHlwZRIGCgJPaxAAEgkKBUVycm9yEAESEAoMR2V0RW1wbG95ZWVzEAIS",
-            "DwoLQWRkRW1wbG95ZWUQAxISCg5SZW1vdmVFbXBsb3llZRAEQg2qAgpOZXR3",
-            "b3JraW5nYgZwcm90bzM="));
+            "ASgOMg4uRW1wbG95ZWUuUm9sZSIwCgRSb2xlEgkKBUFkbWluEAASDQoJVmFs",
+            "aWRhdG9yEAESDgoKUHJvZ3JhbW1lchACIp4BCgNCdWcSCgoCaWQYASABKAUS",
+            "DAoEbmFtZRgCIAEoCRITCgtkZXNjcmlwdGlvbhgDIAEoCRIOCgZzdGF0dXMY",
+            "BCABKAkSHwoIc2V2ZXJpdHkYBSABKA4yDS5CdWcuU2V2ZXJpdHkiNwoIU2V2",
+            "ZXJpdHkSBwoDTG93EAASCQoFTWlub3IQARIJCgVNYWpvchACEgwKCENyaXRp",
+            "Y2FsEAMihwIKB1JlcXVlc3QSGwoEdHlwZRgBIAEoDjINLlJlcXVlc3QuVHlw",
+            "ZRIdCghlbXBsb3llZRgCIAEoCzIJLkVtcGxveWVlSAASEgoIdXNlcm5hbWUY",
+            "AyABKAlIABITCgNidWcYBCABKAsyBC5CdWdIACKLAQoEVHlwZRIQCgxHZXRF",
+            "bXBsb3llZXMQABIPCgtBZGRFbXBsb3llZRABEhIKDlJlbW92ZUVtcGxveWVl",
+            "EAISCwoHR2V0QnVncxADEgoKBkFkZEJ1ZxAEEg0KCVVwZGF0ZUJ1ZxAFEg0K",
+            "CVJlbW92ZUJ1ZxAGEgkKBUxvZ2luEAcSCgoGTG9nb3V0EAhCCQoHcGF5bG9h",
+            "ZCK6AgoIUmVzcG9uc2USHAoEdHlwZRgBIAEoDjIOLlJlc3BvbnNlLlR5cGUS",
+            "DwoHbWVzc2FnZRgCIAEoCRIcCgllbXBsb3llZXMYAyADKAsyCS5FbXBsb3ll",
+            "ZRISCgRidWdzGAQgAygLMgQuQnVnEhEKA2J1ZxgFIAEoCzIELkJ1ZxIbCghl",
+            "bXBsb3llZRgGIAEoCzIJLkVtcGxveWVlIpwBCgRUeXBlEgYKAk9rEAASCQoF",
+            "RXJyb3IQARIQCgxHZXRFbXBsb3llZXMQAhIPCgtBZGRFbXBsb3llZRADEhIK",
+            "DlJlbW92ZUVtcGxveWVlEAQSCwoHR2V0QnVncxAFEgoKBkFkZEJ1ZxAGEg0K",
+            "CVVwZGF0ZUJ1ZxAHEhMKD1N1Y2Nlc3NmdWxMb2dpbhAIEg0KCVJlbW92ZUJ1",
+            "ZxAJQg2qAgpOZXR3b3JraW5nYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Employee), global::Networking.Employee.Parser, new[]{ "Username", "Name", "Password", "Role" }, null, new[]{ typeof(global::Networking.Employee.Types.Role) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Request), global::Networking.Request.Parser, new[]{ "Type", "Employee", "Username" }, new[]{ "Payload" }, new[]{ typeof(global::Networking.Request.Types.Type) }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Response), global::Networking.Response.Parser, new[]{ "Type", "Message", "Employees" }, null, new[]{ typeof(global::Networking.Response.Types.Type) }, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Bug), global::Networking.Bug.Parser, new[]{ "Id", "Name", "Description", "Status", "Severity" }, null, new[]{ typeof(global::Networking.Bug.Types.Severity) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Request), global::Networking.Request.Parser, new[]{ "Type", "Employee", "Username", "Bug" }, new[]{ "Payload" }, new[]{ typeof(global::Networking.Request.Types.Type) }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Networking.Response), global::Networking.Response.Parser, new[]{ "Type", "Message", "Employees", "Bugs", "Bug", "Employee" }, null, new[]{ typeof(global::Networking.Response.Types.Type) }, null, null)
           }));
     }
     #endregion
@@ -120,7 +130,7 @@ namespace Networking {
 
     /// <summary>Field number for the "role" field.</summary>
     public const int RoleFieldNumber = 4;
-    private global::Networking.Employee.Types.Role role_ = global::Networking.Employee.Types.Role.Validator;
+    private global::Networking.Employee.Types.Role role_ = global::Networking.Employee.Types.Role.Admin;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public global::Networking.Employee.Types.Role Role {
       get { return role_; }
@@ -155,7 +165,7 @@ namespace Networking {
       if (Username.Length != 0) hash ^= Username.GetHashCode();
       if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (Password.Length != 0) hash ^= Password.GetHashCode();
-      if (Role != global::Networking.Employee.Types.Role.Validator) hash ^= Role.GetHashCode();
+      if (Role != global::Networking.Employee.Types.Role.Admin) hash ^= Role.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -181,7 +191,7 @@ namespace Networking {
         output.WriteRawTag(26);
         output.WriteString(Password);
       }
-      if (Role != global::Networking.Employee.Types.Role.Validator) {
+      if (Role != global::Networking.Employee.Types.Role.Admin) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Role);
       }
@@ -202,7 +212,7 @@ namespace Networking {
       if (Password.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Password);
       }
-      if (Role != global::Networking.Employee.Types.Role.Validator) {
+      if (Role != global::Networking.Employee.Types.Role.Admin) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Role);
       }
       if (_unknownFields != null) {
@@ -225,7 +235,7 @@ namespace Networking {
       if (other.Password.Length != 0) {
         Password = other.Password;
       }
-      if (other.Role != global::Networking.Employee.Types.Role.Validator) {
+      if (other.Role != global::Networking.Employee.Types.Role.Admin) {
         Role = other.Role;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -264,8 +274,264 @@ namespace Networking {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
       public enum Role {
-        [pbr::OriginalName("Validator")] Validator = 0,
-        [pbr::OriginalName("Programmer")] Programmer = 1,
+        [pbr::OriginalName("Admin")] Admin = 0,
+        [pbr::OriginalName("Validator")] Validator = 1,
+        [pbr::OriginalName("Programmer")] Programmer = 2,
+      }
+
+    }
+    #endregion
+
+  }
+
+  public sealed partial class Bug : pb::IMessage<Bug> {
+    private static readonly pb::MessageParser<Bug> _parser = new pb::MessageParser<Bug>(() => new Bug());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Bug> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Networking.BMSprotoReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Bug() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Bug(Bug other) : this() {
+      id_ = other.id_;
+      name_ = other.name_;
+      description_ = other.description_;
+      status_ = other.status_;
+      severity_ = other.severity_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Bug Clone() {
+      return new Bug(this);
+    }
+
+    /// <summary>Field number for the "id" field.</summary>
+    public const int IdFieldNumber = 1;
+    private int id_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Id {
+      get { return id_; }
+      set {
+        id_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 2;
+    private string name_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Name {
+      get { return name_; }
+      set {
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "description" field.</summary>
+    public const int DescriptionFieldNumber = 3;
+    private string description_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Description {
+      get { return description_; }
+      set {
+        description_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "status" field.</summary>
+    public const int StatusFieldNumber = 4;
+    private string status_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Status {
+      get { return status_; }
+      set {
+        status_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "severity" field.</summary>
+    public const int SeverityFieldNumber = 5;
+    private global::Networking.Bug.Types.Severity severity_ = global::Networking.Bug.Types.Severity.Low;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Networking.Bug.Types.Severity Severity {
+      get { return severity_; }
+      set {
+        severity_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Bug);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Bug other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Id != other.Id) return false;
+      if (Name != other.Name) return false;
+      if (Description != other.Description) return false;
+      if (Status != other.Status) return false;
+      if (Severity != other.Severity) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Id != 0) hash ^= Id.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Description.Length != 0) hash ^= Description.GetHashCode();
+      if (Status.Length != 0) hash ^= Status.GetHashCode();
+      if (Severity != global::Networking.Bug.Types.Severity.Low) hash ^= Severity.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Id != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(Id);
+      }
+      if (Name.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Name);
+      }
+      if (Description.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Description);
+      }
+      if (Status.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(Status);
+      }
+      if (Severity != global::Networking.Bug.Types.Severity.Low) {
+        output.WriteRawTag(40);
+        output.WriteEnum((int) Severity);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Id != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Id);
+      }
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Description.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Description);
+      }
+      if (Status.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Status);
+      }
+      if (Severity != global::Networking.Bug.Types.Severity.Low) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Severity);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Bug other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Id != 0) {
+        Id = other.Id;
+      }
+      if (other.Name.Length != 0) {
+        Name = other.Name;
+      }
+      if (other.Description.Length != 0) {
+        Description = other.Description;
+      }
+      if (other.Status.Length != 0) {
+        Status = other.Status;
+      }
+      if (other.Severity != global::Networking.Bug.Types.Severity.Low) {
+        Severity = other.Severity;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Id = input.ReadInt32();
+            break;
+          }
+          case 18: {
+            Name = input.ReadString();
+            break;
+          }
+          case 26: {
+            Description = input.ReadString();
+            break;
+          }
+          case 34: {
+            Status = input.ReadString();
+            break;
+          }
+          case 40: {
+            Severity = (global::Networking.Bug.Types.Severity) input.ReadEnum();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the Bug message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum Severity {
+        [pbr::OriginalName("Low")] Low = 0,
+        [pbr::OriginalName("Minor")] Minor = 1,
+        [pbr::OriginalName("Major")] Major = 2,
+        [pbr::OriginalName("Critical")] Critical = 3,
       }
 
     }
@@ -281,7 +547,7 @@ namespace Networking {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Networking.BMSprotoReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Networking.BMSprotoReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -305,6 +571,9 @@ namespace Networking {
           break;
         case PayloadOneofCase.Username:
           Username = other.Username;
+          break;
+        case PayloadOneofCase.Bug:
+          Bug = other.Bug.Clone();
           break;
       }
 
@@ -349,12 +618,24 @@ namespace Networking {
       }
     }
 
+    /// <summary>Field number for the "bug" field.</summary>
+    public const int BugFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Networking.Bug Bug {
+      get { return payloadCase_ == PayloadOneofCase.Bug ? (global::Networking.Bug) payload_ : null; }
+      set {
+        payload_ = value;
+        payloadCase_ = value == null ? PayloadOneofCase.None : PayloadOneofCase.Bug;
+      }
+    }
+
     private object payload_;
     /// <summary>Enum of possible cases for the "payload" oneof.</summary>
     public enum PayloadOneofCase {
       None = 0,
       Employee = 2,
       Username = 3,
+      Bug = 4,
     }
     private PayloadOneofCase payloadCase_ = PayloadOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -384,6 +665,7 @@ namespace Networking {
       if (Type != other.Type) return false;
       if (!object.Equals(Employee, other.Employee)) return false;
       if (Username != other.Username) return false;
+      if (!object.Equals(Bug, other.Bug)) return false;
       if (PayloadCase != other.PayloadCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -394,6 +676,7 @@ namespace Networking {
       if (Type != global::Networking.Request.Types.Type.GetEmployees) hash ^= Type.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Employee) hash ^= Employee.GetHashCode();
       if (payloadCase_ == PayloadOneofCase.Username) hash ^= Username.GetHashCode();
+      if (payloadCase_ == PayloadOneofCase.Bug) hash ^= Bug.GetHashCode();
       hash ^= (int) payloadCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -420,6 +703,10 @@ namespace Networking {
         output.WriteRawTag(26);
         output.WriteString(Username);
       }
+      if (payloadCase_ == PayloadOneofCase.Bug) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Bug);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -436,6 +723,9 @@ namespace Networking {
       }
       if (payloadCase_ == PayloadOneofCase.Username) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Username);
+      }
+      if (payloadCase_ == PayloadOneofCase.Bug) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bug);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -460,6 +750,12 @@ namespace Networking {
           break;
         case PayloadOneofCase.Username:
           Username = other.Username;
+          break;
+        case PayloadOneofCase.Bug:
+          if (Bug == null) {
+            Bug = new global::Networking.Bug();
+          }
+          Bug.MergeFrom(other.Bug);
           break;
       }
 
@@ -491,6 +787,15 @@ namespace Networking {
             Username = input.ReadString();
             break;
           }
+          case 34: {
+            global::Networking.Bug subBuilder = new global::Networking.Bug();
+            if (payloadCase_ == PayloadOneofCase.Bug) {
+              subBuilder.MergeFrom(Bug);
+            }
+            input.ReadMessage(subBuilder);
+            Bug = subBuilder;
+            break;
+          }
         }
       }
     }
@@ -503,6 +808,12 @@ namespace Networking {
         [pbr::OriginalName("GetEmployees")] GetEmployees = 0,
         [pbr::OriginalName("AddEmployee")] AddEmployee = 1,
         [pbr::OriginalName("RemoveEmployee")] RemoveEmployee = 2,
+        [pbr::OriginalName("GetBugs")] GetBugs = 3,
+        [pbr::OriginalName("AddBug")] AddBug = 4,
+        [pbr::OriginalName("UpdateBug")] UpdateBug = 5,
+        [pbr::OriginalName("RemoveBug")] RemoveBug = 6,
+        [pbr::OriginalName("Login")] Login = 7,
+        [pbr::OriginalName("Logout")] Logout = 8,
       }
 
     }
@@ -518,7 +829,7 @@ namespace Networking {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Networking.BMSprotoReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Networking.BMSprotoReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -538,6 +849,9 @@ namespace Networking {
       type_ = other.type_;
       message_ = other.message_;
       employees_ = other.employees_.Clone();
+      bugs_ = other.bugs_.Clone();
+      bug_ = other.bug_ != null ? other.bug_.Clone() : null;
+      employee_ = other.employee_ != null ? other.employee_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -578,6 +892,38 @@ namespace Networking {
       get { return employees_; }
     }
 
+    /// <summary>Field number for the "bugs" field.</summary>
+    public const int BugsFieldNumber = 4;
+    private static readonly pb::FieldCodec<global::Networking.Bug> _repeated_bugs_codec
+        = pb::FieldCodec.ForMessage(34, global::Networking.Bug.Parser);
+    private readonly pbc::RepeatedField<global::Networking.Bug> bugs_ = new pbc::RepeatedField<global::Networking.Bug>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public pbc::RepeatedField<global::Networking.Bug> Bugs {
+      get { return bugs_; }
+    }
+
+    /// <summary>Field number for the "bug" field.</summary>
+    public const int BugFieldNumber = 5;
+    private global::Networking.Bug bug_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Networking.Bug Bug {
+      get { return bug_; }
+      set {
+        bug_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "employee" field.</summary>
+    public const int EmployeeFieldNumber = 6;
+    private global::Networking.Employee employee_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Networking.Employee Employee {
+      get { return employee_; }
+      set {
+        employee_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Response);
@@ -594,6 +940,9 @@ namespace Networking {
       if (Type != other.Type) return false;
       if (Message != other.Message) return false;
       if(!employees_.Equals(other.employees_)) return false;
+      if(!bugs_.Equals(other.bugs_)) return false;
+      if (!object.Equals(Bug, other.Bug)) return false;
+      if (!object.Equals(Employee, other.Employee)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -603,6 +952,9 @@ namespace Networking {
       if (Type != global::Networking.Response.Types.Type.Ok) hash ^= Type.GetHashCode();
       if (Message.Length != 0) hash ^= Message.GetHashCode();
       hash ^= employees_.GetHashCode();
+      hash ^= bugs_.GetHashCode();
+      if (bug_ != null) hash ^= Bug.GetHashCode();
+      if (employee_ != null) hash ^= Employee.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -625,6 +977,15 @@ namespace Networking {
         output.WriteString(Message);
       }
       employees_.WriteTo(output, _repeated_employees_codec);
+      bugs_.WriteTo(output, _repeated_bugs_codec);
+      if (bug_ != null) {
+        output.WriteRawTag(42);
+        output.WriteMessage(Bug);
+      }
+      if (employee_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(Employee);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -640,6 +1001,13 @@ namespace Networking {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
       size += employees_.CalculateSize(_repeated_employees_codec);
+      size += bugs_.CalculateSize(_repeated_bugs_codec);
+      if (bug_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Bug);
+      }
+      if (employee_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Employee);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -658,6 +1026,19 @@ namespace Networking {
         Message = other.Message;
       }
       employees_.Add(other.employees_);
+      bugs_.Add(other.bugs_);
+      if (other.bug_ != null) {
+        if (bug_ == null) {
+          Bug = new global::Networking.Bug();
+        }
+        Bug.MergeFrom(other.Bug);
+      }
+      if (other.employee_ != null) {
+        if (employee_ == null) {
+          Employee = new global::Networking.Employee();
+        }
+        Employee.MergeFrom(other.Employee);
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -681,6 +1062,24 @@ namespace Networking {
             employees_.AddEntriesFrom(input, _repeated_employees_codec);
             break;
           }
+          case 34: {
+            bugs_.AddEntriesFrom(input, _repeated_bugs_codec);
+            break;
+          }
+          case 42: {
+            if (bug_ == null) {
+              Bug = new global::Networking.Bug();
+            }
+            input.ReadMessage(Bug);
+            break;
+          }
+          case 50: {
+            if (employee_ == null) {
+              Employee = new global::Networking.Employee();
+            }
+            input.ReadMessage(Employee);
+            break;
+          }
         }
       }
     }
@@ -695,6 +1094,11 @@ namespace Networking {
         [pbr::OriginalName("GetEmployees")] GetEmployees = 2,
         [pbr::OriginalName("AddEmployee")] AddEmployee = 3,
         [pbr::OriginalName("RemoveEmployee")] RemoveEmployee = 4,
+        [pbr::OriginalName("GetBugs")] GetBugs = 5,
+        [pbr::OriginalName("AddBug")] AddBug = 6,
+        [pbr::OriginalName("UpdateBug")] UpdateBug = 7,
+        [pbr::OriginalName("SuccessfulLogin")] SuccessfulLogin = 8,
+        [pbr::OriginalName("RemoveBug")] RemoveBug = 9,
       }
 
     }
