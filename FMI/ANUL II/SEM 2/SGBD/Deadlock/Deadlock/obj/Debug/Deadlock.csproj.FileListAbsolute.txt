@@ -1,6 +1,0 @@
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\bin\Debug\Deadlock.exe
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\bin\Debug\Deadlock.pdb
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.csproj.AssemblyReference.cache
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.csproj.CoreCompileInputs.cache
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.exe
-C:\Users\flori\RiderProjects\SGBD\Deadlock\Deadlock\obj\Debug\Deadlock.pdb

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "SJrVQybsmi7w23aYd9ggplnUeIfsyYMOMfv/tKI20npMZbT0cA+TxdpovwE8YDJwGXyhZY1bdMt8Iq9T8OH76Q==",
+  "success": true,
+  "projectFilePath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/RESTClient/RESTClient.csproj",
+  "expectedPackageFiles": [
+    "/home/florin/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.configuration.configurationmanager/9.0.0-preview.3.24172.9/system.configuration.configurationmanager.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.diagnostics.eventlog/9.0.0-preview.3.24172.9/system.diagnostics.eventlog.9.0.0-preview.3.24172.9.nupkg.sha512",
+    "/home/florin/.nuget/packages/system.security.cryptography.protecteddata/9.0.0-preview.3.24172.9/system.security.cryptography.protecteddata.9.0.0-preview.3.24172.9.nupkg.sha512"
+  ],
+  "logs": []
+}

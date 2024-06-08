@@ -1,0 +1,1 @@
+export const ZBORURI_BASE_URL='http://localhost:5198/api/zboruri';

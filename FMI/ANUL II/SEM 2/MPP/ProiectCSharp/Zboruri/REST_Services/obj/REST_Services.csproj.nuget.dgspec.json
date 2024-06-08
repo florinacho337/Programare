@@ -1,0 +1,535 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/REST_Services/REST_Services.csproj": {}
+  },
+  "projects": {
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj",
+        "projectName": "Model",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/Networking.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/Networking.csproj",
+        "projectName": "Networking",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/Networking.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/Persistence.csproj",
+        "projectName": "Persistence",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/Persistence.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj"
+              },
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/Utils.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/Utils.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/REST_Services/REST_Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/REST_Services/REST_Services.csproj",
+        "projectName": "REST_Services",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/REST_Services/REST_Services.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/REST_Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/Server.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/Server.csproj"
+              },
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Mono.Data.Sqlite": {
+              "target": "Package",
+              "version": "[1.0.61, )"
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/Server.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/Server.csproj",
+        "projectName": "Server",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/Server.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Server/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/Networking.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Networking/Networking.csproj"
+              },
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/Persistence.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Persistence/Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.26.1, )"
+            },
+            "Grpc.Core": {
+              "target": "Package",
+              "version": "[2.46.6, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj",
+        "projectName": "Services",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/Services.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Services/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj": {
+                "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Model/Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/Utils.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/Utils.csproj",
+        "projectName": "Utils",
+        "projectPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/Utils.csproj",
+        "packagesPath": "/home/florin/.nuget/packages/",
+        "outputPath": "/home/florin/FMI/AN II Sem 2/MPP/ProiectCSharp/Zboruri/Utils/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/florin/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Mono.Data.Sqlite": {
+              "target": "Package",
+              "version": "[1.0.61, )"
+            },
+            "SQLite": {
+              "target": "Package",
+              "version": "[3.13.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.0-preview.3.24172.9, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

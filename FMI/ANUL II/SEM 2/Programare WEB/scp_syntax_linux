@@ -1,0 +1,5 @@
+scp -r -P port directory user@www.scs.ubbcluj.ro:public_html
+
+If you don't transfer directories, don't put "-r"
+Change "user" with your scs username and "directory" with name of the directory you want to send
+Change "port" with your current port
