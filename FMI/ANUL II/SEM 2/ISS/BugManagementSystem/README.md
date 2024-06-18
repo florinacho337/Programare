@@ -93,6 +93,7 @@ This project is a client-server application designed to manage bug reports in a 
    - Navigate to the Client directory and build and run the client:
      ```bash
      cd ../Client
+     dotnet build
      dotnet run
      ```
 
