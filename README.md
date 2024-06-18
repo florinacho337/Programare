@@ -26,8 +26,10 @@
  * ### Second Semester
    * [Software Engineering](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/ISS "Software Engineering") (C#) - Bug Management System application
    * [Artificial Intelligence](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/AI "Artificial Intelligence") (Python)
-   * [Web Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/Programare%20WEB "Web Programming") (HTML, CSS, JS and other frameworks)
-   * [Programming Systems and Environments](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/MPP "Programming Systems and Environments") (C# and Java) - Flights booking application
+   * [Web Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/Programare%20WEB "Web Programming") (HTML, CSS, JS, jQuery, Ajax, PHP)
+   * [Programming Systems and Environments](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/MPP "Programming Systems and Environments") (C# and Java) - Travel Agency Ticketing System
+     * [Optional Project - Sport Events App](https://github.com/KipaLogix/SporTogether "SporTogether") (React Native, Node.js, Express.js, JWT, Web Sockets) - Team Project
+   * [Database Management Systems](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/SGBD "DBMS") (SQL Server and C#)
  
   ```c#
   while(doubt){
