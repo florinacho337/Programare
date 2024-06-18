@@ -52,22 +52,40 @@ This project is a client-server application designed for employees of a travel a
        </connectionStrings>
      </configuration>
      ```
+3. **Install Dependencies**:
+    - Navigate to each project directory and install dependencies using NuGet:
+      ```bash
+      cd Model
+      dotnet restore
+      cd ../Persistence
+      dotnet restore
+      cd ../Services
+      dotnet restore
+      cd ../REST_Services
+      dotnet restore
+      cd ../Networking
+      dotnet restore
+      cd ../Server
+      dotnet restore
+      cd ../Client
+      dotnet restore
+      cd ../Utils
+      dotnet restore
+      ```
 
-3. **Build and run the Server**:
+4. **Build and run the Server**:
    - Navigate to the server directory and install dependencies using NuGet:
      ```bash
-     cd Server
+     cd ../Server
      dotnet build
-     dotnet restore
      dotnet run
      ```
 
-4. **Build and Run the Client**:
+5. **Build and Run the Client**:
    - Navigate to the server directory and install dependencies using NuGet:
      ```bash
      cd ../Client
      dotnet build
-     dotnet restore
      dotnet run
      ```
 
