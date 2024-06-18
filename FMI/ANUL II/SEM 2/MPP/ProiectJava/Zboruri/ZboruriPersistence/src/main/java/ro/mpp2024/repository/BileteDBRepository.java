@@ -39,7 +39,7 @@ public class BileteDBRepository implements BileteRepository {
     public void save(Bilet entity) {
         logger.traceEntry("saving bilet {}", entity);
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("insert into bilete (client, oras, tara, nr_locuri, zbor) values (?, ?, ?, ?, ?)")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("insert into bilete (Client, Oras, Tara, NrLocuri, ZborId) values (?, ?, ?, ?, ?)")) {
             preparedStatement.setString(1, entity.getClient());
             preparedStatement.setString(2, entity.getOras());
             preparedStatement.setString(3, entity.getTara());
@@ -58,7 +58,7 @@ public class BileteDBRepository implements BileteRepository {
 
     private void saveTuristi(Connection connection, List<String> turisti) {
         logger.traceEntry("saving turisti");
-        try (PreparedStatement preparedStatement = connection.prepareStatement("select max(id) as \"id\" from bilete")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select max(Id) as \"id\" from bilete")) {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next())
                     turisti.forEach(turist -> saveTurist(resultSet, connection, turist));
@@ -72,7 +72,7 @@ public class BileteDBRepository implements BileteRepository {
 
     private void saveTurist(ResultSet resultSet, Connection connection, String turist) {
         logger.traceEntry("saving turist {}", turist);
-        try (PreparedStatement preparedStatement = connection.prepareStatement("insert into turisti_bilet (id_bilet, turist) values (?, ?)")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("insert into turisti_bilet (BiletId, Turist) values (?, ?)")) {
             preparedStatement.setInt(1, resultSet.getInt("id"));
             preparedStatement.setString(2, turist);
             int result = preparedStatement.executeUpdate();

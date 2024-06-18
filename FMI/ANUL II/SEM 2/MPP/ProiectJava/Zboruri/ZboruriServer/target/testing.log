@@ -271,3 +271,218 @@
 23 Apr 2024 10:18:17,377 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
 23 Apr 2024 10:18:17,381 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
 23 Apr 2024 10:18:17,382 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:20:37,124 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:20:37,127 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:20:37,128 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:22:12,160 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username user1
+18 Jun 2024 11:22:12,161 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:22:12,161 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:22:12,161 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:22:12,161 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:22:12,162 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:22:12,316 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3a58f152)
+18 Jun 2024 11:22:12,320 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username user1
+18 Jun 2024 11:22:17,931 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username user1
+18 Jun 2024 11:22:17,931 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:22:17,931 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3a58f152)
+18 Jun 2024 11:22:17,932 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username user1
+18 Jun 2024 11:22:55,283 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 11:22:55,284 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:22:55,284 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3a58f152)
+18 Jun 2024 11:22:55,284 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username1
+18 Jun 2024 11:23:00,387 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 11:23:00,388 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:23:00,388 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@3a58f152)
+18 Jun 2024 11:23:00,389 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 11:23:01,391 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 11:23:01,391 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:23:01,392 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:23:01,392 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:23:01,392 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:23:01,393 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:23:01,394 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5ddd09fd)
+18 Jun 2024 11:23:01,396 ERROR ro.mpp2024.repository.ZboruriDBRepository 76 findAll - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such column: nr_locuri)
+18 Jun 2024 11:23:01,397 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 11:34:49,112 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:34:49,114 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:34:49,114 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:35:02,235 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 11:35:02,235 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:35:02,235 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:35:02,235 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:35:02,235 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:35:02,235 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:35:02,332 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25fb71ad)
+18 Jun 2024 11:35:02,335 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 11:35:03,338 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 11:35:03,338 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:35:03,339 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:35:03,339 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:35:03,339 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:35:03,339 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:35:03,341 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@34a560b1)
+18 Jun 2024 11:40:54,483 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:40:54,485 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:40:54,485 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 11:41:06,441 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 11:41:06,441 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:41:06,441 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:41:06,441 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:41:06,441 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:41:06,441 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:41:06,529 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4fbe8b9f)
+18 Jun 2024 11:41:06,532 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 11:41:07,535 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 11:41:07,535 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 11:41:07,536 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 11:41:07,536 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 11:41:07,537 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 11:41:07,537 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 11:41:07,539 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4a72f528)
+18 Jun 2024 11:41:07,544 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 13:35:17,756 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:35:17,758 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:35:17,759 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:35:43,878 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 13:35:43,879 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:35:43,879 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 13:35:43,879 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 13:35:43,879 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 13:35:43,879 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 13:35:43,987 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:35:43,990 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 13:35:44,993 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 13:35:44,993 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:35:44,993 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 13:35:44,994 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 13:35:44,994 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 13:35:44,994 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 13:35:44,996 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25e721)
+18 Jun 2024 13:35:45,001 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 13:35:58,604 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:35:58,605 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:35:58,605 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:35:58,606 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username2
+18 Jun 2024 13:36:04,250 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:36:04,250 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:04,250 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:36:04,251 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username2
+18 Jun 2024 13:36:09,025 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:36:09,026 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:09,026 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:36:09,026 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username2
+18 Jun 2024 13:36:14,790 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:36:14,790 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:14,790 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:36:14,790 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username2
+18 Jun 2024 13:36:37,174 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:36:37,175 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:37,175 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 13:36:37,175 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 13:36:38,176 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 13:36:38,176 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:38,177 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25e721)
+18 Jun 2024 13:36:38,178 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 13:36:55,667 TRACE ro.mpp2024.repository.ZboruriDBRepository 112 findAllByDestDateAndMinimumSeats - Enter
+18 Jun 2024 13:36:55,667 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:36:55,668 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25e721)
+18 Jun 2024 13:36:55,669 TRACE ro.mpp2024.repository.ZboruriDBRepository 129 findAllByDestDateAndMinimumSeats - Exit
+18 Jun 2024 13:37:34,812 TRACE ro.mpp2024.repository.ZboruriDBRepository 112 findAllByDestDateAndMinimumSeats - Enter
+18 Jun 2024 13:37:34,812 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:37:34,812 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25e721)
+18 Jun 2024 13:37:34,814 TRACE ro.mpp2024.repository.ZboruriDBRepository 129 findAllByDestDateAndMinimumSeats - Exit
+18 Jun 2024 13:37:47,475 TRACE ro.mpp2024.repository.ZboruriDBRepository 93 update - Enter updating zbor with id 2
+18 Jun 2024 13:37:47,476 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:37:47,476 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@25e721)
+18 Jun 2024 13:37:47,489 TRACE ro.mpp2024.repository.ZboruriDBRepository 102 update - Updated 1 instances
+18 Jun 2024 13:37:47,489 TRACE ro.mpp2024.repository.ZboruriDBRepository 107 update - Exit
+18 Jun 2024 13:37:47,503 TRACE ro.mpp2024.repository.BileteDBRepository 40 save - Enter saving bilet Bilet{client='client1', turisti=[turist, client1], nrLocuri=2, zbor=Zbor{aeroport='Avram Iancu Cluj-Napoca', destinatie='Amsterdam', plecare=2024-09-13T20:20, nrLocuri=11}}
+18 Jun 2024 13:37:47,503 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:37:47,503 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 13:37:47,503 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 13:37:47,504 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 13:37:47,504 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 13:37:47,504 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@18e5665d)
+18 Jun 2024 13:37:47,513 TRACE ro.mpp2024.repository.BileteDBRepository 60 saveTuristi - Enter saving turisti
+18 Jun 2024 13:37:47,514 TRACE ro.mpp2024.repository.BileteDBRepository 74 saveTurist - Enter saving turist turist
+18 Jun 2024 13:37:47,523 TRACE ro.mpp2024.repository.BileteDBRepository 79 saveTurist - Saved 1 instances
+18 Jun 2024 13:37:47,523 TRACE ro.mpp2024.repository.BileteDBRepository 84 saveTurist - Exit
+18 Jun 2024 13:37:47,523 TRACE ro.mpp2024.repository.BileteDBRepository 74 saveTurist - Enter saving turist client1
+18 Jun 2024 13:37:47,531 TRACE ro.mpp2024.repository.BileteDBRepository 79 saveTurist - Saved 1 instances
+18 Jun 2024 13:37:47,531 TRACE ro.mpp2024.repository.BileteDBRepository 84 saveTurist - Exit
+18 Jun 2024 13:37:47,532 TRACE ro.mpp2024.repository.BileteDBRepository 70 saveTuristi - Exit
+18 Jun 2024 13:37:47,532 TRACE ro.mpp2024.repository.BileteDBRepository 51 save - Saved 1 instances
+18 Jun 2024 13:37:47,532 TRACE ro.mpp2024.repository.BileteDBRepository 56 save - Exit
+18 Jun 2024 13:54:42,769 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:54:42,771 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:54:42,771 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 13:55:01,890 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username2
+18 Jun 2024 13:55:01,890 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:55:01,890 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 13:55:01,890 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 13:55:01,890 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 13:55:01,890 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 13:55:01,978 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@207e66fe)
+18 Jun 2024 13:55:01,981 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 13:55:02,984 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 13:55:02,985 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 13:55:02,985 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 13:55:02,986 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 13:55:02,986 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 13:55:02,986 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 13:55:02,987 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@5495f542)
+18 Jun 2024 13:55:02,993 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 14:18:52,075 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:18:52,077 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:18:52,078 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:19:47,416 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 14:19:47,417 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 14:19:47,417 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 14:19:47,417 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 14:19:47,418 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 14:19:47,418 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 14:19:47,525 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@c14acea)
+18 Jun 2024 14:19:47,529 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 14:19:48,533 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 14:19:48,534 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 14:19:48,534 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 14:19:48,534 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 14:19:48,535 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 14:19:48,535 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 14:19:48,536 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@24609cb9)
+18 Jun 2024 14:19:48,550 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 14:51:04,200 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:../../../../../../zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:51:04,202 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:../../../../../../zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:51:04,202 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:../../../../../../zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 14:51:23,324 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 14:51:23,324 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 14:51:23,324 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 14:51:23,324 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:../../../../../../zboruri.db
+18 Jun 2024 14:51:23,324 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 14:51:23,324 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 14:51:23,433 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@2646baec)
+18 Jun 2024 14:51:23,435 ERROR ro.mpp2024.repository.AngajatiDBRepository 66 findByUsernameAndPass - org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (no such table: angajati)
+18 Jun 2024 14:51:23,436 TRACE ro.mpp2024.repository.AngajatiDBRepository 69 findByUsernameAndPass - Exit: No angajat found with username username1
+18 Jun 2024 15:23:15,387 INFO  ro.mpp2024.repository.AngajatiDBRepository 18 <init> - Initializing AngajatiDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 15:23:15,389 INFO  ro.mpp2024.repository.ZboruriDBRepository 22 <init> - Initializing ZboruriDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 15:23:15,389 INFO  ro.mpp2024.repository.BileteDBRepository 19 <init> - Initializing BileteDBRepository with properties: {zboruri.jdbc.url=jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db, zboruri.jdbc.driver=org.sqlite.JDBC, zboruri.server.port=55556} 
+18 Jun 2024 15:23:47,490 TRACE ro.mpp2024.repository.AngajatiDBRepository 51 findByUsernameAndPass - Enter finding angajat with username username1
+18 Jun 2024 15:23:47,490 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 15:23:47,490 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 15:23:47,491 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 15:23:47,491 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 15:23:47,491 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 15:23:47,625 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4fbe8b9f)
+18 Jun 2024 15:23:47,629 TRACE ro.mpp2024.repository.AngajatiDBRepository 61 findByUsernameAndPass - Exit
+18 Jun 2024 15:23:48,632 TRACE ro.mpp2024.repository.ZboruriDBRepository 65 findAll - Enter
+18 Jun 2024 15:23:48,632 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 15:23:48,632 TRACE ro.mpp2024.repository.JdbcUtils 23 getNewConnection - Enter
+18 Jun 2024 15:23:48,632 INFO  ro.mpp2024.repository.JdbcUtils 29 getNewConnection - trying to connect to database ... jdbc:sqlite:/home/florin/FMI/AN II Sem 2/MPP/zboruri.db
+18 Jun 2024 15:23:48,633 INFO  ro.mpp2024.repository.JdbcUtils 30 getNewConnection - user: null
+18 Jun 2024 15:23:48,633 INFO  ro.mpp2024.repository.JdbcUtils 31 getNewConnection - pass: null
+18 Jun 2024 15:23:48,633 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4a72f528)
+18 Jun 2024 15:23:48,640 TRACE ro.mpp2024.repository.ZboruriDBRepository 79 findAll - Exit
+18 Jun 2024 15:24:02,510 TRACE ro.mpp2024.repository.ZboruriDBRepository 112 findAllByDestDateAndMinimumSeats - Enter
+18 Jun 2024 15:24:02,510 TRACE ro.mpp2024.repository.JdbcUtils 47 getConnection - Enter
+18 Jun 2024 15:24:02,510 TRACE ro.mpp2024.repository.JdbcUtils 56 getConnection - Exit with(org.sqlite.jdbc4.JDBC4Connection@4a72f528)
+18 Jun 2024 15:24:02,511 TRACE ro.mpp2024.repository.ZboruriDBRepository 129 findAllByDestDateAndMinimumSeats - Exit

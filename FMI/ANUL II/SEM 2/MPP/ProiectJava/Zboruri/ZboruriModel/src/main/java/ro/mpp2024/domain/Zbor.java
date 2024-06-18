@@ -1,5 +1,7 @@
 package ro.mpp2024.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDateTime;
 
 public class Zbor extends Entity<Integer> {
@@ -7,6 +9,10 @@ public class Zbor extends Entity<Integer> {
     private String Destinatie;
     private LocalDateTime Plecare;
     private int NrLocuri;
+
+    public Zbor(){
+
+    }
 
     public Zbor(String aeroport, String destinatie, LocalDateTime plecare, int nrLocuri) {
         this.Aeroport = aeroport;

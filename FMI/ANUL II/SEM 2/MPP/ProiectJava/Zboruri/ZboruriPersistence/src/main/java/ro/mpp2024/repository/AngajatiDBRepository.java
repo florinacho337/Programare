@@ -50,12 +50,12 @@ public class AngajatiDBRepository implements AngajatiRepository {
     public Angajat findByUsernameAndPass(String username, String password) {
         logger.traceEntry("finding angajat with username {}", username);
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from angajati where username = ? and parola = ?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from angajati where Username = ? and Parola = ?")) {
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
-                    String nume = resultSet.getString("nume");
+                    String nume = resultSet.getString("Nume");
                     Angajat angajat = new Angajat(username, nume, password);
                     angajat.setId(username);
                     logger.traceExit();

@@ -32,7 +32,7 @@ public class ZboruriDBRepository implements ZboruriRepository {
     public Zbor findOne(Integer integer) {
         logger.traceEntry("finding zbor with id {}", integer);
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where id = ?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where Id = ?")) {
             preparedStatement.setInt(1, integer);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 if (resultSet.next()) {
@@ -50,11 +50,11 @@ public class ZboruriDBRepository implements ZboruriRepository {
     }
 
     private Zbor createZbor(ResultSet resultSet) throws SQLException {
-        Integer id = resultSet.getInt("id");
-        String destinatie = resultSet.getString("destinatie");
-        LocalDateTime plecare = LocalDateTime.parse(resultSet.getString("plecare"), Constants.DATE_TIME_FORMATTER);
-        String aeroport = resultSet.getString("aeroport");
-        int nrLocuri = resultSet.getInt("nr_locuri");
+        Integer id = resultSet.getInt("Id");
+        String destinatie = resultSet.getString("Destinatie");
+        LocalDateTime plecare = LocalDateTime.parse(resultSet.getString("Plecare"), Constants.DATE_TIME_FORMATTER_JSON);
+        String aeroport = resultSet.getString("Aeroport");
+        int nrLocuri = resultSet.getInt("NrLocuri");
         Zbor zbor = new Zbor(aeroport, destinatie, plecare, nrLocuri);
         zbor.setId(id);
         return zbor;
@@ -65,7 +65,7 @@ public class ZboruriDBRepository implements ZboruriRepository {
         logger.traceEntry();
         List<Zbor> zboruri = new ArrayList<>();
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where nr_locuri > 0")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where NrLocuri > 0")) {
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
                 while (resultSet.next()) {
                     Zbor zbor = createZbor(resultSet);
@@ -92,9 +92,9 @@ public class ZboruriDBRepository implements ZboruriRepository {
     public void update(Integer integer, Zbor entity) {
         logger.traceEntry("updating zbor with id {}", integer);
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("update zboruri set destinatie=?, plecare=?, aeroport=?, nr_locuri=? where id=?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("update zboruri set Destinatie=?, Plecare=?, Aeroport=?, NrLocuri=? where Id=?")) {
             preparedStatement.setString(1, entity.getDestinatie());
-            preparedStatement.setString(2, entity.getPlecare().format(Constants.DATE_TIME_FORMATTER));
+            preparedStatement.setString(2, entity.getPlecare().format(Constants.DATE_TIME_FORMATTER_JSON));
             preparedStatement.setString(3, entity.getAeroport());
             preparedStatement.setInt(4, entity.getNrLocuri());
             preparedStatement.setInt(5, integer);
@@ -112,7 +112,7 @@ public class ZboruriDBRepository implements ZboruriRepository {
         logger.traceEntry();
         List<Zbor> zboruri = new ArrayList<>();
         Connection connection = dbUtils.getConnection();
-        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where destinatie = ? and plecare like ? || '%' and nr_locuri >= ?")) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement("select * from zboruri where Destinatie = ? and Plecare like ? || '%' and NrLocuri >= ?")) {
             preparedStatement.setString(1, destination);
             preparedStatement.setString(2, date.format(Constants.DATE_FORMATTER));
             preparedStatement.setInt(3, min);

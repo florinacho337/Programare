@@ -7,4 +7,5 @@ include 'ZboruriServer'
 include 'ZboruriClient'
 include 'ZboruriUtils'
 include 'ThriftNetworking'
+include 'RESTClient'
 
