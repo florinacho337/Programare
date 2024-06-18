@@ -9,13 +9,6 @@ This project is a client-server application designed for employees of a travel a
 - **Search Flights**: Search for flights by specific date and destination.
 - **Purchase Tickets**: Fill out a form to buy tickets for customers.
 
-## Purchase Form Details
-- **Customer Name**: Required
-- **City**: Required
-- **Country**: Required
-- **Number of Seats**: Required
-- **Additional Tourists**: Optional (Required if Number of Seats > 1)
-
 ## Technologies Used
 - **Back-end**: Java
 - **Database**: SQLite
