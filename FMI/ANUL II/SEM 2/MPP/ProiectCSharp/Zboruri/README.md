@@ -74,7 +74,8 @@ This project is a client-server application designed for employees of a travel a
 ## Usage
 1. **Login**:
    - Open the client application and log in with your credentials.
-![Login](./images/login.png)
+     
+      ![Login](./images/login.png)
 
 2. **View Flights**:
    - Once authenticated, you will see all available flights.
