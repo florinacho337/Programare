@@ -69,14 +69,20 @@ This project is a client-server application designed for employees of a travel a
 ## Usage
 1. **Login**:
    - Open the client application and log in with your credentials.
+![Login](./images/login.png)
 
 2. **View Flights**:
-   - Once authenticated, navigate to the "View Flights" section to see all available flights.
+   - Once authenticated, navigate to the "Zboruri" tab to see all available flights.
+![View Flights](./images/viewFlights.png)
 
 3. **Search Flights**:
-   - Use the search feature to find flights by specifying a date and destination.
+   - Navigate to the "Cumpara bilete" tab and use the search feature to find flights by specifying a date and destination.
+![Search Flights](./images/search.png)
 
 4. **Purchase Tickets**:
    - Select a flight and fill out the purchase form with customer details to buy tickets.
+![Buy Tickets](./images/buyTicket.png)
 
 ## Project Structure
+
+![Project Structure](./images/projectStructure.png)
