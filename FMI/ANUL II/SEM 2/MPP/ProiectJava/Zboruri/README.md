@@ -32,7 +32,7 @@ This project is a client-server application designed for employees of a travel a
 
 2. **Configure the Server**:
    - Ensure SQLite is installed.
-   - Modify the zboruriserver.properties file located in server/src/main/resources:
+   - Modify the zboruriserver.properties file located in ZboruriServer/src/main/resources:
      ```properties
      zboruri.server.port=55556
      zboruri.jdbc.driver=org.sqlite.JDBC
