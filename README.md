@@ -30,7 +30,11 @@
    * [Programming Systems and Environments](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/MPP "Programming Systems and Environments") (C# and Java) - Travel Agency Ticketing System
      * [Optional Project - Sport Events App](https://github.com/KipaLogix/SporTogether "SporTogether") (React Native, Node.js, Express.js, JWT, Web Sockets) - Team Project
    * [Database Management Systems](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/SGBD "DBMS") (SQL Server and C#)
- 
+  
+# Personal Projects
+
+* SimpleBlog application with Django, Docker and React - [SimpleBlog](https://github.com/florinacho337/SimpleBlog/tree/main "SimpleBlog")
+  
   ```c#
   while(doubt){
    exercise();
