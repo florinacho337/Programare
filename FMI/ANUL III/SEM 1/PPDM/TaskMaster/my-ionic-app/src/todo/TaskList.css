@@ -1,0 +1,56 @@
+.post-it {
+    background: linear-gradient(145deg, #FFFACD, #FDFD96);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .post-it:active {
+    background: linear-gradient(145deg, #FFF8B0, #FCFC8D);
+  }
+  
+  .post-it .pin {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .post-it .pin {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--ion-color-medium); /* Ensure pin has --ion-color-medium color */
+  }
+  
+  .add-task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-task .add-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #555; /* Lighter color for a modern look */
+    font-family: 'Arial', sans-serif; /* Change font style */
+  }
+  
+  .add-task .add-text {
+    font-size: 1.4rem;
+    color: #555; /* Lighter color for a modern look */
+    font-family: 'Arial', sans-serif; /* Change font style */
+  }
