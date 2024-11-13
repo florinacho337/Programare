@@ -1,5 +1,5 @@
 export interface TaskProps {
-  id?: string;
+  _id?: string;
   name: string;
   description?: string;
   deadline: Date;

@@ -17,9 +17,10 @@ import {
   IonToggle,
   IonText,
   IonIcon,
-  IonAlert
+  IonAlert,
+  IonToast
 } from '@ionic/react';
-import { save } from 'ionicons/icons'; // Import the save icon
+import { save, informationOutline } from 'ionicons/icons'; // Import the save icon
 import { getLogger } from '../core';
 import { TaskContext } from './TaskProvider';
 import { RouteComponentProps } from 'react-router';
@@ -29,7 +30,7 @@ import './TaskEdit.css'; // Import the CSS file
 const log = getLogger('TaskEdit');
 
 interface TaskEditProps extends RouteComponentProps<{
-  id?: string;
+  _id?: string;
 }> {}
 
 const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
@@ -46,11 +47,12 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [pinColor, setPinColor] = useState('medium');
+  const [showToast, setShowToast] = useState(false);
 
   useEffect(() => {
     log('useEffect');
-    const routeId = match.params.id || '';
-    const task = tasks?.find(t => t.id === routeId);
+    const routeId = match.params._id || '';
+    const task = tasks?.find(t => t._id === routeId);
     setTask(task);
     if (task) {
       setName(task.name);
@@ -61,7 +63,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
       setUrgent(task.urgent);
       setFinished(task.finished || false);
     }
-  }, [match.params.id, tasks]);
+  }, [match.params._id, tasks]);
 
   useEffect(() => {
     setPinColor(important && urgent ? 'danger' : important ? 'success' : urgent ? 'secondary' : 'medium');
@@ -80,7 +82,10 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
   const handleSave = useCallback(() => {
     const editedTask = task ? { ...task, name, description, deadline, progress, important, urgent, finished } : { name, description, deadline, progress, important, urgent, finished };
     if (validateTask(editedTask)) {
-      saveTask && saveTask(editedTask).then(() => history.goBack());
+      saveTask && saveTask(editedTask).then(() => {
+        setShowToast(true);
+        history.goBack();
+      });
     }
   }, [task, saveTask, name, description, deadline, progress, important, urgent, finished, history]);
 
@@ -89,7 +94,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>{task ? "Edit Task": "Save Task"}</IonTitle>
+          <IonTitle>{task ? "Edit Task" : "Create Task"}</IonTitle>
           <IonButtons slot="end">
             <IonButton onClick={handleSave}>
               <IonIcon icon={save} />
@@ -108,7 +113,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
             <IonLabel position="stacked">Deadline</IonLabel>
             <IonText>{deadline ? deadline.toLocaleDateString() : 'Select a date'}</IonText>
           </IonItem>
-          { showDatetimePicker && <IonDatetime
+          {showDatetimePicker && <IonDatetime
             presentation="date"
             value={deadline ? deadline.toISOString() : ''}
             onIonChange={e => {
@@ -116,7 +121,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
               setShowDatetimePicker(false);
             }}
             onIonCancel={() => setShowDatetimePicker(false)}
-          /> }
+          />}
           <IonItem className="post-it-item">
             <IonLabel position="stacked">Description</IonLabel>
             <IonTextarea placeholder="Add a description..." value={description} onIonChange={e => setDescription(e.detail.value || '')} />
@@ -146,6 +151,13 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
           header={'Error'}
           message={alertMessage}
           buttons={['OK']}
+        />
+        <IonToast
+          isOpen={showToast}
+          onDidDismiss={() => setShowToast(false)}
+          message="Changes are saved locally and will be synced when online."
+          duration={2000}
+          icon={informationOutline}
         />
       </IonContent>
     </IonPage>
