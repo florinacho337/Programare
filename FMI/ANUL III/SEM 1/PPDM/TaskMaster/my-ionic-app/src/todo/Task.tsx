@@ -7,11 +7,11 @@ import './Task.css'; // Import the CSS file
 const log = getLogger('Task');
 
 interface TaskPropsExt extends TaskProps {
-  onEdit: (id?: string) => void;
-  onToggleFinished: (id?: string) => void;
+  onEdit: (_id?: string) => void;
+  onToggleFinished: (_id?: string) => void;
 }
 
-const Task: React.FC<TaskPropsExt> = ({ id, name, description, deadline, progress, important, urgent, finished, onEdit, onToggleFinished }) => {
+const Task: React.FC<TaskPropsExt> = ({ _id, name, description, deadline, progress, important, urgent, finished, onEdit, onToggleFinished }) => {
   const [localFinished, setLocalFinished] = useState(finished);
   const pinColor = important && urgent ? 'danger' : important ? 'success' : urgent ? 'secondary' : 'medium';
 
@@ -21,11 +21,11 @@ const Task: React.FC<TaskPropsExt> = ({ id, name, description, deadline, progres
 
   const handleToggleFinished = () => {
     setLocalFinished(!localFinished);
-    onToggleFinished(id);
+    onToggleFinished(_id);
   };
 
   return (
-    <IonCard className="task-card">
+    <IonCard className="task-card" onClick={() => onEdit(_id)}>
       <div className={`pin ${pinColor}`}></div>
       <IonCardHeader>
         <IonCardTitle className="task-title">{name}</IonCardTitle>

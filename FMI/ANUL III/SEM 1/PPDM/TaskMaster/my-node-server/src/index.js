@@ -142,14 +142,6 @@ router.del('/task/:id', ctx => {
   ctx.response.status = 204; // no content
 });
 
-// setInterval(() => {
-//   lastId = `${parseInt(lastId) + 1}`;
-//   const item = new Item({ id: lastId, text: `task ${lastId}`, date: lastUpdated, version: 1 });
-//   tasks.push(item);
-//   console.log(`New item: ${item.text}`);
-//   broadcast({ event: 'created', payload: { item } });
-// }, 5000);
-
 app.use(router.routes());
 app.use(router.allowedMethods());
 

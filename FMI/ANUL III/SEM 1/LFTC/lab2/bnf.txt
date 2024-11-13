@@ -1,0 +1,9 @@
+<fisier> ::= <alfabet_stari> <alfabet_intrare> <stare_initiala> <stari_finale> <tranzitii>
+<alfabet_stari> ::= <stare> | <stare>, <alfabet_stari>
+<stare> ::= q0 | q1 | q2 | q3 | q4 ... | qn
+<alfabet_intrare> ::= <caracter> | <caracter>, <alfabet_intrare>
+<caracter> ::= 0 | 1 | ... | 9 | a | b | ... | z | A | B | ... | Z | . | _ | -
+<tranzitii> ::= <tranzitie> | <tranzitie> <tranzitii>
+<tranzitie> ::= <stare>, <stare>, <caracter>
+<stare_initiala> ::= <stare>
+<stari_finale> ::= <stare> | <stare>, <stari_finale>

@@ -34,21 +34,27 @@ import './theme/variables.css';
 import { TaskList } from './todo';
 import { TaskProvider } from './todo/TaskProvider';
 import TaskEdit from './todo/TaskEdit';
+import { AuthProvider, Login, PrivateRoute } from './auth';
+import NetworkStatus from './components/NetworkStatus';
 
 setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <TaskProvider>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route path="/tasks" component={TaskList} exact={true}/>
-          <Route path="/task" component={TaskEdit} exact={true}/>
-          <Route path="/task/:id" component={TaskEdit} exact={true}/>
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <AuthProvider>
+          <Route path="/login" component={Login} exact={true}/>
+          <TaskProvider>
+            <PrivateRoute path="/tasks" component={TaskList} exact={true}/>
+            <PrivateRoute path="/task" component={TaskEdit} exact={true}/>
+            <PrivateRoute path="/task/:_id" component={TaskEdit} exact={true}/>
+          </TaskProvider>
           <Route exact path="/" render={() => <Redirect to="/tasks"/>}/>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </TaskProvider>
+        </AuthProvider>
+      </IonRouterOutlet>
+    </IonReactRouter>
+    <NetworkStatus/>
   </IonApp>
 );
 

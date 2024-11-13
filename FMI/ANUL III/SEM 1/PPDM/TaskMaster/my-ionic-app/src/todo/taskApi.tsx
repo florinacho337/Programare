@@ -1,61 +1,38 @@
 import axios from 'axios';
-import { getLogger } from '../core';
+import { getLogger, withLogs, authConfig, baseUrl } from '../core';
 import { TaskProps } from './TaskProps';
 
-const log = getLogger('taskApi');
+const taskUrl = `http://${baseUrl}/api/task`;
 
-const baseUrl = 'localhost:3000';
-const taskUrl = `http://${baseUrl}/task`;
-
-interface ResponseProps<T> {
-  data: T;
+export const getTasks: (token: string) => Promise<TaskProps[]> = token => {
+  return withLogs(axios.get(taskUrl, authConfig(token)), 'getTasks');
 }
 
-function withLogs<T>(promise: Promise<ResponseProps<T>>, fnName: string): Promise<T> {
-  log(`${fnName} - started`);
-  return promise
-    .then(res => {
-      log(`${fnName} - succeeded`);
-      return Promise.resolve(res.data);
-    })
-    .catch(err => {
-      log(`${fnName} - failed`);
-      return Promise.reject(err);
-    });
+export const createTask: (token: string, task: TaskProps) => Promise<TaskProps[]> = (token, task) => {
+  return withLogs(axios.post(taskUrl, task, authConfig(token)), 'createTask');
 }
 
-const config = {
-  headers: {
-    'Content-Type': 'application/json'
-  }
-};
-
-export const getTasks: () => Promise<TaskProps[]> = () => {
-  return withLogs(axios.get(taskUrl, config), 'getTasks');
-}
-
-export const createTask: (task: TaskProps) => Promise<TaskProps[]> = task => {
-  return withLogs(axios.post(taskUrl, task, config), 'createTask');
-}
-
-export const updateTask: (task: TaskProps) => Promise<TaskProps[]> = task => {
-  return withLogs(axios.put(`${taskUrl}/${task.id}`, task, config), 'updateTask');
+export const updateTask: (token: string, task: TaskProps) => Promise<TaskProps[]> = (token, task) => {
+  return withLogs(axios.put(`${taskUrl}/${task._id}`, task, authConfig(token)), 'updateTask');
 }
 
 interface MessageData {
-  event: string;
-  payload: {
-    task: TaskProps;
-  };
+  type: string;
+  payload: TaskProps;
 }
 
-export const newWebSocket = (onMessage: (data: MessageData) => void) => {
-  const ws = new WebSocket(`ws://${baseUrl}`)
+const log = getLogger('ws');
+
+export const newWebSocket = (token: string, onMessage: (data: MessageData) => void, onOpen: () => void, onClose: () => void) => {
+  const ws = new WebSocket(`ws://${baseUrl}`);
   ws.onopen = () => {
     log('web socket onopen');
+    ws.send(JSON.stringify({ type: 'authorization', payload: { token } }));
+    onOpen();
   };
   ws.onclose = () => {
     log('web socket onclose');
+    onClose();
   };
   ws.onerror = error => {
     log('web socket onerror', error);
@@ -66,5 +43,5 @@ export const newWebSocket = (onMessage: (data: MessageData) => void) => {
   };
   return () => {
     ws.close();
-  }
+  };
 }
