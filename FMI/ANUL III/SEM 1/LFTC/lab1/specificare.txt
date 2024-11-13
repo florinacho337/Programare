@@ -1,0 +1,27 @@
+<program> ::= <functie> | <functie><program>
+<functie> ::= <antet_functie> { <instructiuni> }
+<antet_functie> ::= <type> ID ( <parametrii> )
+<type> ::= int | float
+<parametrii> ::= <type> ID | <type> ID, <parametrii>
+<instructiuni> ::= <instructiune> | <instructiune> <instructiuni>
+<instructiune> ::= <declarare> | <atribuire> | <citire> | <afisare> | <ciclare> | <conditional> | <op_unar>
+<declarare> ::= <type> ID;
+<atribuire> ::= ID = <expresie> | ID <op_aritmetic>= <expresie>;
+<citire> ::= cin >> ID;
+<afisare> ::= cout << <output>;
+<ciclare> ::= while ( <conditie> ) { <instructiuni> }
+<conditional> ::= if ( <conditie> ) { <instructiuni> }
+<expresie> ::= ID | CONST | <expresie> <op_aritmetic> <expresie>
+<conditie> ::= <expresie> | <expresie> <op_relational> <expresie>
+<op_aritmetic> ::= + | - | / | * | %
+<op_relational> ::= > | < | == | != | >= | <=
+<output> ::= ID | CONST
+<op_unar> ::= <incrementare>; | <decrementare>;
+<incrementare> ::= ++ID | ID++
+<decrementare> ::= --ID | ID--
+
+
+- ID poate contine litere, cifre si "_"
+- ID nu poate incepe cu o cifra
+- ID are maxim 255 caractere
+- CONST poate fi numar intreg sau numar zecimal specificat intre " "
