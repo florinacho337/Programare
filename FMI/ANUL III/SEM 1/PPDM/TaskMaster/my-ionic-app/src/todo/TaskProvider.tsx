@@ -161,6 +161,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
   }
   
   async function saveTaskCallback(task: TaskProps) {
+    let savedOffline = false;
     try {
       log('saveTask started');
       dispatch({ type: SAVE_TASK_STARTED });
@@ -170,6 +171,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
         dispatch({ type: SAVE_TASK_SUCCEEDED, payload: { task: savedTask } });
       } else {
         log('saveTask offline');
+        savedOffline = true;
         if (!task._id) {
           task._id = `temp-${uuidv4()}`; // Assign a temporary ID with a prefix if the task doesn't have one
         }
@@ -179,6 +181,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       }
     } catch (error) {
       log('saveTask failed');
+      savedOffline = true;
       if (!task._id) {
         task._id = `temp-${uuidv4()}`; // Assign a temporary ID with a prefix if the task doesn't have one
       }
@@ -186,6 +189,7 @@ export const TaskProvider: React.FC<TaskProviderProps> = ({ children }) => {
       await Preferences.set({ key: `offlineTask-${task._id}`, value: JSON.stringify(task) });
       dispatch({ type: SAVE_TASK_SUCCEEDED, payload: { task } }); // Update saving state to false
     }
+    return savedOffline;
   }
 
   function wsEffect() {
