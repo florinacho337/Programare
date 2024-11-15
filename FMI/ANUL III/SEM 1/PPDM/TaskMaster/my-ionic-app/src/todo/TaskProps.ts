@@ -7,4 +7,5 @@ export interface TaskProps {
   progress: number;
   important: boolean;
   urgent: boolean;
+  photoFilePath?: string;
 }
