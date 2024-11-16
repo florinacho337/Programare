@@ -99,8 +99,9 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
   const handleSave = useCallback(() => {
     const editedTask = task ? { ...task, name, description, deadline, progress, important, urgent, finished, photoFilePath } : { name, description, deadline, progress, important, urgent, finished, photoFilePath };
     if (validateTask(editedTask)) {
-      saveTask && saveTask(editedTask).then(() => {
-        setShowToast(true);
+      saveTask && saveTask(editedTask).then((savedOffline) => {
+        if (savedOffline)
+          setShowToast(true);
         history.goBack();
       });
     }
