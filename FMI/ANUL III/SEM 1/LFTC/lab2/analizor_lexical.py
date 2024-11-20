@@ -106,56 +106,59 @@ def analyze(file_path):
 
     line_number = 0
     processed_tokens = []
+    operators_and_separators = ['+=', '-=', '/=', '*=', '%=', '>>', '<<', '==', '!=', '<=', '>=', '--', '++', '>', '<', '+', '-', '*', '/', '%', '=', '(', ')', '{', '}', ';', ',']
+    keywords = ['if', 'while', 'return', 'int', 'float', 'cin', 'cout']
 
     for line in lines:
         line_number += 1
         line = line.strip()  # Înlăturăm spațiile de la început și sfârșit
 
         while line:
-            # 1. Căutăm cel mai lung prefix pentru constante
             longest_int_prefix = afd_intregi.longest_prefix(line) or ""
             longest_real_prefix = afd_reale.longest_prefix(line) or ""
-            longest_prefix = longest_int_prefix if len(longest_int_prefix) > len(longest_real_prefix) else longest_real_prefix
+            longest_id_prefix = afd_identificatori.longest_prefix(line) or ""
+            longest_prefix = max(longest_int_prefix, longest_real_prefix, longest_id_prefix, key=len)
 
-            if len(longest_prefix) > 0:
-                # 2.1 Verificăm dacă după constantă urmează spațiu sau `;`
-                next_char = line[len(longest_prefix):len(longest_prefix)+1]
-                if next_char in [' ', ';', '', ')']:  # '' înseamnă că suntem la sfârșitul liniei
-                    # 2.1.1 Adăugăm constanta ca fiind validă
+            if len(longest_prefix) > 0: 
+                if len(longest_id_prefix) == len(longest_prefix):
+                # Verificăm dacă prefixul este un token cunoscut
+                    found_token = False
+                    for token in keywords:
+                        if line.startswith(token):
+                            processed_tokens.append((token, None))
+                            line = line[len(token):].strip()  # Eliminăm token-ul recunoscut din linie
+                            found_token = True
+                            break
+                    
+                    if found_token:
+                        continue
+
+                    if longest_id_prefix[0].isalpha():
+                        index = ts_identifiers.insert(longest_id_prefix)
+                        processed_tokens.append(("ID", index))
+                        line = line[len(longest_id_prefix):].strip()
+                        continue
+                    else:
+                        print(f"Eroare lexicală: identificator invalid '{longest_id_prefix}' pe linia {line_number}.")
+                        return
+                elif len(longest_prefix) == len(longest_int_prefix) or len(longest_prefix) == len(longest_real_prefix):
                     index = ts_constants.insert(longest_prefix)
                     processed_tokens.append(("CONST", index))
-                    line = line[len(longest_prefix):].strip()  # Eliminăm constantă din linie
+                    line = line[len(longest_prefix):].strip() 
                     continue
-                else:
-                    # 2.1.2 Eroare lexicală dacă nu avem spațiu sau `;`
-                    print(f"Eroare lexicală: constanta '{longest_prefix}' nu este urmată de delimitator valid pe linia {line_number}.")
-                    return
-
-            # 2.2 Dacă nu avem constantă, verificăm tokenurile cunoscute
-            found_token = False
-            for token in sorted(token_codes.keys(), key=len, reverse=True):
-                if line.startswith(token):
-                    processed_tokens.append((token, None))
-                    line = line[len(token):].strip()  # Eliminăm token-ul recunoscut din linie
-                    found_token = True
-                    break
-
-            if found_token:
-                continue  # Dacă am găsit un token cunoscut, trecem la următorul
-
-            # 2.2.2 Dacă nu este un token cunoscut, verificăm pentru identificator
-            longest_id_prefix = afd_identificatori.longest_prefix(line)
-            if len(longest_id_prefix) > 0:
-                # Trebuie să înceapă cu literă pentru a fi valid
-                if longest_id_prefix[0].isalpha():
-                    index = ts_identifiers.insert(longest_id_prefix)
-                    processed_tokens.append(("ID", index))
-                    line = line[len(longest_id_prefix):].strip()
-                    continue
-                else:
-                    print(f"Eroare lexicală: identificator invalid '{longest_id_prefix}' pe linia {line_number}.")
-                    return
             else:
+                # Verificăm dacă prefixul este un operator sau separator
+                found_operator = False
+                for op in operators_and_separators:
+                    if line.startswith(op):
+                        processed_tokens.append((op, None))
+                        line = line[len(op):].strip()
+                        found_operator = True
+                        break
+
+                if found_operator:
+                    continue
+
                 # Dacă niciunul dintre cazuri nu se potrivește, avem un token necunoscut
                 unknown_token = line.split()[0] if line.split() else line
                 print(f"Eroare lexicală: token necunoscut '{unknown_token}' pe linia {line_number}.")

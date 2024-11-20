@@ -19,15 +19,19 @@ import {
   IonIcon,
   IonAlert,
   IonToast,
-  CreateAnimation
+  CreateAnimation,
+  IonModal,
+  createAnimation
 } from '@ionic/react';
-import { save, informationOutline, camera } from 'ionicons/icons'; // Import the save and camera icons
+import { save, informationOutline, camera, location as loc } from 'ionicons/icons';
 import { getLogger } from '../core';
 import { TaskContext } from './TaskProvider';
 import { RouteComponentProps } from 'react-router';
 import { TaskProps } from './TaskProps';
-import './TaskEdit.css'; // Import the CSS file
-import { usePhotoGallery, UserPhoto } from '../hooks/usePhotoGallery';
+import './TaskEdit.css';
+import { usePhotoGallery } from '../hooks/usePhotoGallery';
+import { Geolocation } from '@capacitor/geolocation';
+import MyMap from '../components/MyMap';
 
 const log = getLogger('TaskEdit');
 
@@ -53,6 +57,8 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
   const [showToast, setShowToast] = useState(false);
   const [photoFilePath, setPhotoFilePath] = useState<string>('');
   const [photo, setPhoto] = useState<string>();
+  const [location, setLocation] = useState<{ lat: number; lng: number } | undefined>(undefined);
+  const [showMapModal, setShowMapModal] = useState(false);
   const animationRef = useRef<CreateAnimation>(null);
 
   useEffect(() => {
@@ -69,6 +75,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
       setUrgent(task.urgent);
       setFinished(task.finished || false);
       setPhotoFilePath(task.photoFilePath || '');
+      setLocation(task.location);
     }
   }, [match.params._id, tasks]);
 
@@ -97,7 +104,7 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
   };
 
   const handleSave = useCallback(() => {
-    const editedTask = task ? { ...task, name, description, deadline, progress, important, urgent, finished, photoFilePath } : { name, description, deadline, progress, important, urgent, finished, photoFilePath };
+    const editedTask = task ? { ...task, name, description, deadline, progress, important, urgent, finished, photoFilePath, location } : { name, description, deadline, progress, important, urgent, finished, photoFilePath, location };
     if (validateTask(editedTask)) {
       saveTask && saveTask(editedTask).then((savedOffline) => {
         if (savedOffline)
@@ -105,13 +112,73 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
         history.goBack();
       });
     }
-  }, [task, saveTask, name, description, deadline, progress, important, urgent, finished, history, photoFilePath]);
+  }, [task, saveTask, name, description, deadline, progress, important, urgent, finished, history, photoFilePath, location]);
 
   const addPhoto = async () => {
     const photo = await takePhoto();
     setPhoto(photo.webviewPath);
     setPhotoFilePath(photo.filepath);
   };
+
+  const selectLocation = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    setLocation({ lat: coordinates.coords.latitude, lng: coordinates.coords.longitude });
+  };
+
+  const handleLocationSelect = (lat: number, lng: number) => {
+    setLocation({ lat, lng });
+  };
+
+  const handleShowMap = () => {
+    setShowMapModal(true);
+  }
+
+  const handleCloseMap = () => {
+    setShowMapModal(false);
+  }
+
+  const enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot || baseEl;
+  
+    const backdropAnimation = createAnimation()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+  
+    const wrapperAnimation = createAnimation()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, transform: 'translateX(100%)', opacity: '0' },
+        { offset: 1, transform: 'translateX(0)', opacity: '1' },
+      ]);
+  
+    return createAnimation()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+  
+  const leaveAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot || baseEl;
+  
+    const backdropAnimation = createAnimation()
+      .addElement(root.querySelector('ion-backdrop')!)
+      .fromTo('opacity', 'var(--backdrop-opacity)', '0.01');
+  
+    const wrapperAnimation = createAnimation()
+      .addElement(root.querySelector('.modal-wrapper')!)
+      .keyframes([
+        { offset: 0, transform: 'translateX(0)', opacity: '1' },
+        { offset: 1, transform: 'translateX(-100%)', opacity: '0' },
+      ]);
+  
+    return createAnimation()
+      .addElement(baseEl)
+      .easing('ease-in')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+  
 
   log('render');
   return (
@@ -174,6 +241,17 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
               <IonLabel>Urgent</IonLabel>
               <IonToggle checked={urgent} onIonChange={e => setUrgent(e.detail.checked)} />
             </IonItem>
+            <div className="location-container">
+              <IonButton onClick={handleShowMap}>
+                <IonIcon icon={loc} slot="start" />
+                Select Location
+              </IonButton>
+              {location && (
+                <IonText>
+                  Location set!
+                </IonText>
+              )}
+            </div>
             <IonButton onClick={addPhoto}>
               <IonIcon icon={camera} slot="start" />
               Add a photo
@@ -199,6 +277,10 @@ const TaskEdit: React.FC<TaskEditProps> = ({ history, match }) => {
           duration={2000}
           icon={informationOutline}
         />
+        <IonModal isOpen={showMapModal} onDidDismiss={() => setShowMapModal(false)} enterAnimation={enterAnimation} leaveAnimation={leaveAnimation}>
+          <MyMap onLocationSelect={handleLocationSelect} showExistingMarkers={false} actualLocation={location}/>
+          <IonButton onClick={handleCloseMap}>Close Map</IonButton>
+        </IonModal>
       </IonContent>
     </IonPage>
   );

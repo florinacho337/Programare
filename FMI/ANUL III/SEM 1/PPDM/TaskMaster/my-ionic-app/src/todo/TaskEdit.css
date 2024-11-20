@@ -41,3 +41,8 @@
 .pin.medium {
   background-color: var(--ion-color-medium);
 }
+
+.location-container {
+  display: flex;
+  flex-direction: column;
+}

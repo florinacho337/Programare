@@ -8,4 +8,8 @@ export interface TaskProps {
   important: boolean;
   urgent: boolean;
   photoFilePath?: string;
+  location?: {
+    lat: number;
+    lng: number;
+  };
 }

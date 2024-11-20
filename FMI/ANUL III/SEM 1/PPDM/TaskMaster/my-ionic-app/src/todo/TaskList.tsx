@@ -18,14 +18,18 @@ import {
   IonSearchbar,
   IonInfiniteScroll,
   IonInfiniteScrollContent,
+  IonFab,
+  IonFabButton,
+  IonModal
 } from '@ionic/react';
-import { add, sunny, moon, logOut } from 'ionicons/icons';
+import { add, sunny, moon, logOut, map } from 'ionicons/icons'; // Import the map icon
 import Task from './Task';
 import { getLogger } from '../core';
 import { TaskContext } from './TaskProvider';
 import './TaskList.css'; // Import the CSS file
 import { AuthContext } from '../auth/AuthProvider';
 import { TaskProps } from './TaskProps';
+import MyMap from '../components/MyMap'; // Import the MyMap component
 
 const log = getLogger('TaskList');
 
@@ -37,6 +41,7 @@ const TaskList: React.FC<RouteComponentProps> = ({ history }) => {
   const [filter, setFilter] = useState('all');
   const [displayedTasks, setDisplayedTasks] = useState<TaskProps[]>([]);
   const [page, setPage] = useState(1);
+  const [showMapModal, setShowMapModal] = useState(false);
 
   const toggleDarkModeHandler = () => {
     setDarkMode(!darkMode);
@@ -70,6 +75,10 @@ const TaskList: React.FC<RouteComponentProps> = ({ history }) => {
 
   const loadMoreTasks = () => {
     setPage(prevPage => prevPage + 1);
+  };
+
+  const handleShowMap = () => {
+    setShowMapModal(true);
   };
 
   log('render', fetching);
@@ -133,6 +142,15 @@ const TaskList: React.FC<RouteComponentProps> = ({ history }) => {
         >
           <IonInfiniteScrollContent loadingText="Loading more tasks..."></IonInfiniteScrollContent>
         </IonInfiniteScroll>
+        <IonFab vertical="bottom" horizontal="end" slot="fixed">
+          <IonFabButton onClick={handleShowMap}>
+            <IonIcon icon={map} />
+          </IonFabButton>
+        </IonFab>
+        <IonModal isOpen={showMapModal} onDidDismiss={() => setShowMapModal(false)}>
+          <MyMap tasks={tasks || []} enterTask={id => history.push(`/task/${id}`)} showExistingMarkers={true} />
+          <IonButton onClick={() => setShowMapModal(false)}>Close Map</IonButton>
+        </IonModal>
       </IonContent>
     </IonPage>
   );

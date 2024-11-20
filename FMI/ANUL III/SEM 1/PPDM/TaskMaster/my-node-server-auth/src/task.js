@@ -94,8 +94,10 @@ taskRouter.put('/:id', async ctx => {
     return;
   }
   if (!taskId) {
+    console.log('create task instead updating');
     await createTask(ctx, task, response);
   } else {
+    console.log('updating task');
     const userId = ctx.state.user._id;
     task.userId = userId;
     const updatedCount = await taskStore.update({ _id: id }, task);
