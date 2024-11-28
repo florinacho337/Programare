@@ -1,0 +1,18 @@
+int main() {
+	int a;
+	int b;
+
+	cin >> a;
+	cin >> b;
+
+	int r;
+	r = -1;
+
+	repeta {
+		r = a % b;
+		a = b;
+		b = r;
+	} pana_cand (r == 0);
+
+	cout << a;
+}
