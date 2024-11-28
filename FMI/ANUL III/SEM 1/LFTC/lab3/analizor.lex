@@ -45,7 +45,7 @@ void print_error(const char *message);
 
 ID      [a-zA-Z_][a-zA-Z0-9_]{0,254}       
 CONST   0|-?[1-9][0-9]*(\.[0-9]+)?                
-OP_SEP  \+\+|\-\-|[+\-\*/%]=?|>>|<<|[=!<>]=|<|>|=|[;,(){}]|int|float|while|if|cin|cout   
+OP_SEP  \+\+|\-\-|[+\-\*/%]=?|>>|<<|[=!<>]=|<|>|=|[;,(){}]|int|float|while|if|cin|cout|repeta|pana_cand   
 WS      [ \t\r]+                          
 NEWLINE \n                                  
 
