@@ -1,0 +1,15 @@
+int main() {
+	float raza;
+	cin >> raza;
+		
+	float pi;
+	pi = 3.14;
+
+	float P;
+	float A;
+	P = 2 * pi * raza;
+	A = pi * raza * raza;
+
+	cout << P;
+	cout << A;
+}

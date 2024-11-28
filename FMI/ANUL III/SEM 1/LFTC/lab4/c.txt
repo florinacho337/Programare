@@ -1,0 +1,13 @@
+int main(){
+	int n;$
+	int sum;
+	sum = 0;
+	cin >> n;
+	int x;
+	while(n > 0){
+		cin >> x;
+		sum = sum + x;
+		n = n - 1;
+	}
+	cout << sum;
+}
