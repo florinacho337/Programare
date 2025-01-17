@@ -17,6 +17,11 @@ CONST   0|-?[1-9][0-9]*(\.[0-9]+)?
 [a-zA-Z_][a-zA-Z0-9_]{0,254}      { yylval.id = strdup(yytext); return ID; }
 "++"                              { return PLUS_PLUS; }
 "--"                              { return MINUS_MINUS; }
+"+="                              { return PE; }
+"-="                              { return ME; }
+"*="                              { return TE; }
+"/="                              { return DE; }
+"%="                              { return MOD; }
 "<"                               { return LT; }
 ">"                               { return GT; }
 "<="                              { return LE; }

@@ -11,8 +11,11 @@ data class Task(
     val description:  String = "",
     val deadline: Instant? = Instant.EPOCH,
     val finished: Boolean = false,
-    val progress: Int = 0
+    val progress: Int = 0,
+    val imageUri: String? = null
 ) {
+    @Transient
     var isUpdated: Boolean = false
+    @Transient
     var isNew: Boolean = false
 }

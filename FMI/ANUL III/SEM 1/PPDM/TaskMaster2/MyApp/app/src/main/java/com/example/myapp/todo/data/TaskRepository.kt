@@ -146,12 +146,12 @@ class TaskRepository(
                     Log.d(TAG, "Created new task on remote: $task")
                 } else if (task.isUpdated) {
                     // Update task on remote server
+                    task.isUpdated = false // Mark as synced
                     taskService.update(
                         taskId = task._id,
                         task = task,
                         authorization = getBearerToken()
                     )
-                    task.isUpdated = false // Mark as synced
                     taskDao.update(task) // Update local DB
                     Log.d(TAG, "Updated task on remote: $task")
                 }

@@ -1,4 +1,4 @@
-package com.example.myapp.todo.ui
+package com.example.myapp.todo.ui.task
 
 import android.util.Log
 import androidx.compose.foundation.layout.*
@@ -11,10 +11,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import coil.compose.AsyncImage
+import com.example.myapp.MyPhotos
 import com.example.myapp.R
 import com.example.myapp.core.Result
-import com.example.myapp.todo.ui.task.TaskViewModel
-import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -27,10 +27,12 @@ fun TaskScreen(taskId: String?, onClose: () -> Unit) {
     val taskUiState = taskViewModel.uiState
     var name by rememberSaveable { mutableStateOf(taskUiState.task.name) }
     var description by rememberSaveable { mutableStateOf(taskUiState.task.description) }
-    var progress by rememberSaveable { mutableStateOf(taskUiState.task.progress.toFloat()) }
+    var progress by rememberSaveable { mutableFloatStateOf(taskUiState.task.progress.toFloat()) }
     var isFinished by rememberSaveable { mutableStateOf(taskUiState.task.finished) }
     var deadlineString by rememberSaveable { mutableStateOf("") }
+    var imageUri by rememberSaveable { mutableStateOf(taskUiState.task.imageUri) }
     var isDeadlineValid by remember { mutableStateOf(true) }
+    var showMyPhotos by remember { mutableStateOf(false) }
 
     Log.d("taskScreen", "recompose, name = $name")
 
@@ -58,131 +60,166 @@ fun TaskScreen(taskId: String?, onClose: () -> Unit) {
                     .format(it)
             } ?: ""
             textInitialized = true
+            imageUri = taskUiState.task.imageUri
         }
     }
 
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(id = R.string.task)) },
-                actions = {
-                    Button(onClick = {
-                        // Validate the deadline format before saving
-                        isDeadlineValid = validateDateFormat(deadlineString)
-                        if (isDeadlineValid) {
-                            val deadline = deadlineString.takeIf { it.isNotEmpty() }?.let {
-                                try {
-                                    val localDate = LocalDate.parse(it, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-                                    localDate.atStartOfDay(ZoneId.systemDefault()).plusHours(5).toInstant()
-                                } catch (e: DateTimeParseException) {
-                                    null // Return null if parsing fails
-                                }
-                            }
-                            taskViewModel.saveOrUpdatetask(
-                                name = name,
-                                description = description,
-                                deadline = deadline,
-                                finished = isFinished,
-                                progress = progress.toInt()
-                            )
-                        }
-                    }) {
-                        Text("Save")
-                    }
-                }
-            )
-        }
-    ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .padding(paddingValues)
-                .padding(16.dp)
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(16.dp)
-        ) {
-            if (taskUiState.loadResult is Result.Loading) {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
-                return@Column
+    if (showMyPhotos){
+        MyPhotos(
+            modifier = Modifier.fillMaxSize(),
+            onImageSelected = { uri ->
+                imageUri = uri
+                showMyPhotos = false
             }
+        )
+    } else {
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = { Text(text = stringResource(id = R.string.task)) },
+                    actions = {
+                        Button(onClick = {
+                            // Validate the deadline format before saving
+                            isDeadlineValid = validateDateFormat(deadlineString)
+                            if (isDeadlineValid) {
+                                val deadline = deadlineString.takeIf { it.isNotEmpty() }?.let {
+                                    try {
+                                        val localDate = LocalDate.parse(
+                                            it,
+                                            DateTimeFormatter.ofPattern("yyyy-MM-dd")
+                                        )
+                                        localDate.atStartOfDay(ZoneId.systemDefault()).plusHours(5)
+                                            .toInstant()
+                                    } catch (e: DateTimeParseException) {
+                                        null // Return null if parsing fails
+                                    }
+                                }
+                                taskViewModel.saveOrUpdatetask(
+                                    name = name,
+                                    description = description,
+                                    deadline = deadline,
+                                    finished = isFinished,
+                                    progress = progress.toInt(),
+                                    imageUri = imageUri
+                                )
+                            }
+                        }) {
+                            Text("Save")
+                        }
+                    }
+                )
+            }
+        ) { paddingValues ->
+            Column(
+                modifier = Modifier
+                    .padding(paddingValues)
+                    .padding(16.dp)
+                    .fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
+            ) {
+                if (taskUiState.loadResult is Result.Loading) {
+                    CircularProgressIndicator(modifier = Modifier.align(Alignment.CenterHorizontally))
+                    return@Column
+                }
 
-            // Task Name Input
-            TextField(
-                value = name,
-                onValueChange = { name = it },
-                label = { Text("Task Name") },
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            // Task Description Input
-            TextField(
-                value = description,
-                onValueChange = { description = it },
-                label = { Text("Description") },
-                modifier = Modifier.fillMaxWidth()
-            )
-
-            // Progress Slider
-            Column {
-                Text("Progress: ${progress.toInt()}%", modifier = Modifier.padding(bottom = 8.dp))
-                Slider(
-                    value = progress,
-                    onValueChange = { progress = it },
-                    valueRange = 0f..100f,
+                // Task Name Input
+                TextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("Task Name") },
                     modifier = Modifier.fillMaxWidth()
                 )
-            }
 
-            // Finished Checkbox
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceBetween,
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text("Finished")
-                Checkbox(
-                    checked = isFinished,
-                    onCheckedChange = { isFinished = it }
-                )
-            }
-
-            // Deadline Input with Validation
-            Column {
+                // Task Description Input
                 TextField(
-                    value = deadlineString,
-                    onValueChange = {
-                        deadlineString = it
-                        isDeadlineValid = validateDateFormat(it)
-                    },
-                    label = { Text("Deadline (yyyy-MM-dd)") },
-                    modifier = Modifier.fillMaxWidth(),
-                    isError = !isDeadlineValid
+                    value = description,
+                    onValueChange = { description = it },
+                    label = { Text("Description") },
+                    modifier = Modifier.fillMaxWidth()
                 )
-                if (!isDeadlineValid) {
+
+                // Progress Slider
+                Column {
                     Text(
-                        text = "Invalid date format. Please use yyyy-MM-dd.",
-                        color = MaterialTheme.colorScheme.error,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(top = 4.dp)
+                        "Progress: ${progress.toInt()}%",
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    Slider(
+                        value = progress,
+                        onValueChange = { progress = it },
+                        valueRange = 0f..100f,
+                        modifier = Modifier.fillMaxWidth()
                     )
                 }
-            }
 
-            // Error Display (if any)
-            if (taskUiState.loadResult is Result.Error) {
-                Text(
-                    text = "Failed to load task: ${(taskUiState.loadResult as Result.Error).exception?.message}",
-                    color = MaterialTheme.colorScheme.error
-                )
-            }
-            if (taskUiState.submitResult is Result.Error) {
-                Text(
-                    text = "Failed to submit task: ${(taskUiState.submitResult as Result.Error).exception?.message}",
-                    color = MaterialTheme.colorScheme.error
-                )
+                // Finished Checkbox
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Finished")
+                    Checkbox(
+                        checked = isFinished,
+                        onCheckedChange = { isFinished = it }
+                    )
+                }
+
+                // Deadline Input with Validation
+                Column {
+                    TextField(
+                        value = deadlineString,
+                        onValueChange = {
+                            deadlineString = it
+                            isDeadlineValid = validateDateFormat(it)
+                        },
+                        label = { Text("Deadline (yyyy-MM-dd)") },
+                        modifier = Modifier.fillMaxWidth(),
+                        isError = !isDeadlineValid
+                    )
+                    if (!isDeadlineValid) {
+                        Text(
+                            text = "Invalid date format. Please use yyyy-MM-dd.",
+                            color = MaterialTheme.colorScheme.error,
+                            style = MaterialTheme.typography.bodySmall,
+                            modifier = Modifier.padding(top = 4.dp)
+                        )
+                    }
+                }
+
+                Button(onClick = { showMyPhotos = true }) {
+                    Text("Add a photo")
+                }
+
+                imageUri?.let {
+                    Spacer(modifier = Modifier.height(16.dp)) // Add spacing between the button and the image
+                    AsyncImage(
+                        model = it,
+                        contentDescription = "Selected Image",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp)
+                    )
+                }
+
+                // Error Display (if any)
+                if (taskUiState.loadResult is Result.Error) {
+                    Text(
+                        text = "Failed to load task: ${(taskUiState.loadResult as Result.Error).exception?.message}",
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
+                if (taskUiState.submitResult is Result.Error) {
+                    Text(
+                        text = "Failed to submit task: ${(taskUiState.submitResult as Result.Error).exception?.message}",
+                        color = MaterialTheme.colorScheme.error
+                    )
+                }
             }
         }
     }
 }
+
 
 // Function to validate date format
 fun validateDateFormat(date: String): Boolean {

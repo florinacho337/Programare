@@ -13,6 +13,7 @@
 %token PLUS_PLUS MINUS_MINUS '+' '-' '*' '/' '%' '='
 %token LT GT LE GE EQ NE
 %token SHIFT_LEFT SHIFT_RIGHT
+%token PE ME TE DE MOD
 
 %union {
     int int_val;
@@ -69,7 +70,7 @@ declarare:
 
 atribuire:
     ID '=' expresie ';'
-    | ID op_aritmetic '=' expresie ';'
+    | ID atribuire_compusa expresie ';'
     ;
 
 citire:
@@ -104,14 +105,6 @@ conditie:
     | expresie op_relational expresie
     ;
 
-op_aritmetic:
-    '+'
-    | '-'
-    | '*'
-    | '/'
-    | '%'
-    ;
-
 op_relational:
     LT
     | GT
@@ -120,6 +113,13 @@ op_relational:
     | EQ
     | NE
     ;
+
+atribuire_compusa:
+    PE
+    | ME
+    | TE
+    | DE
+    | MOD
 
 op_unar:
     PLUS_PLUS ID

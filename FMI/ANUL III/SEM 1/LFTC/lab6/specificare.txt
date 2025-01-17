@@ -1,0 +1,11 @@
+<program> ::= #include <iostream> using namespace std ; int ID ( ) { <instructiuni> }
+<instructiuni> ::= <instructiune> | <instructiune> <instructiuni>
+<instructiune> ::= <declarare> | <atribuire> | <citire> | <afisare>
+<instr_declarare> ::= int <declarare>
+<declarare> ::= ID ;
+<atribuire> ::= ID = <expresie> ;
+<citire> ::= cin >> ID ;
+<afisare> ::= cout << ID ;
+<expresie> ::= any | any <op_aritmetic> <expresie>
+<op_aritmetic> ::= + | - | *
+<any> ::= ID | CONST

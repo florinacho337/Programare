@@ -1,14 +1,14 @@
-{"_id":"0","name":"task","description":"Description for task 0","deadline":"2023-12-31T23:59:59.999Z","finished":true,"progress":50,"important":false,"urgent":false,"userId":"vI1GMkzBza5i82zj","location":{"lat":46.76812120174362,"lng":23.60902907957218},"photoFilePath":""}
+{"_id":"0","deadline":"2024-01-01T03:00:00Z","description":"Description for task 0","finished":true,"imageUri":"file:///data/user/0/com.example.myapp/cache/image4497317441942035665jpg","name":"task","progress":50,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"1","name":"task ed","description":"Description for task 1","deadline":"2024-12-31T19:59:00.000Z","finished":true,"progress":51,"important":true,"urgent":false,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"10","deadline":"2024-11-09T22:00:00Z","description":"dasda","finished":true,"name":"task ofline","progress":16,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"11","name":"task off","description":"","deadline":"2024-11-08T05:10:00.000Z","progress":14,"important":true,"urgent":false,"finished":false,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"12","deadline":"2024-12-14T22:00:00Z","description":"Description for task 0","finished":true,"name":"task editat","progress":39,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"13","deadline":"2024-11-10T03:00:00Z","description":"added in offline mode","finished":true,"name":"task offline modificare","progress":76,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"14","name":"task offline","description":"added in offline mode","deadline":"2024-11-07T11:51:00.000Z","progress":56,"important":false,"urgent":false,"finished":false,"userId":"vI1GMkzBza5i82zj"}
+{"_id":"11","deadline":"2024-11-08T03:00:00Z","description":"","finished":true,"imageUri":"file:///data/user/0/com.example.myapp/cache/image6596582458954722519jpg","name":"task off","progress":74,"userId":"vI1GMkzBza5i82zj"}
+{"_id":"12","deadline":"2024-12-15T03:00:00Z","description":"Description for task 0","finished":true,"imageUri":"file:///data/user/0/com.example.myapp/cache/image5539768203744093753jpg","name":"task editat","progress":39,"userId":"vI1GMkzBza5i82zj"}
+{"_id":"13","deadline":"2024-11-10T03:00:00Z","description":"added in offline mode","finished":false,"name":"task offline modificare","progress":24,"userId":"vI1GMkzBza5i82zj"}
+{"_id":"14","deadline":"2024-11-07T03:00:00Z","description":"added in offline mode","finished":true,"name":"task offline","progress":26,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"15","name":"task offline","description":"added in offline mode","deadline":"2024-11-07T11:51:00.000Z","progress":56,"important":false,"urgent":false,"finished":false,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"16","name":"task5","description":"","deadline":"2024-11-14T11:55:00.000Z","progress":25,"important":false,"urgent":true,"finished":false,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"17","name":"task5","description":"","deadline":"2024-11-14T11:55:00.000Z","progress":25,"important":false,"urgent":true,"finished":false,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"18","name":"task6","description":"Description for task 6","deadline":"2024-10-10T10:10:10.000Z","finished":true,"progress":60,"important":true,"urgent":false,"userId":"vI1GMkzBza5i82zj"}
+{"_id":"18","deadline":"2024-10-10T02:00:00Z","description":"Description for task 6","finished":true,"name":"task6","progress":23,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"19","name":"task7","description":"Description for task 7","deadline":"2024-09-09T09:09:09.000Z","finished":false,"progress":70,"important":false,"urgent":true,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"2","name":"task 2","description":"Description for task 2","deadline":"2023-12-31T23:59:59.999Z","finished":false,"progress":25,"important":false,"urgent":true,"userId":"vI1GMkzBza5i82zz"}
 {"_id":"3","name":"new task","description":"","deadline":"2024-11-06T13:03:00.000Z","progress":11,"important":true,"urgent":false,"finished":false,"userId":"vI1GMkzBza5i82zj"}
@@ -18,9 +18,8 @@
 {"_id":"7","deadline":"2024-12-31T03:00:00Z","description":"Description for task 1","finished":false,"name":"task ed","progress":51,"userId":"vI1GMkzBza5i82zj"}
 {"_id":"8","name":"task 2","description":"Description for task 2","deadline":"2023-12-31T23:59:59.999Z","finished":true,"progress":25,"important":false,"urgent":true,"userId":"vI1GMkzBza5i82zz"}
 {"_id":"9","name":"task","description":"Description for task 1","deadline":"2024-12-31T19:59:00.000Z","finished":false,"progress":51,"important":true,"urgent":true,"userId":"vI1GMkzBza5i82zj"}
-{"deadline":"2024-12-13T03:00:00Z","description":"abc","finished":false,"name":"task kotlin","progress":51,"userId":"vI1GMkzBza5i82zj","_id":"dROC45ostYgOnPLL"}
-{"name":"task offline noiembrie","description":"","deadline":"2024-11-18T11:54:48.053Z","progress":28,"important":true,"urgent":false,"finished":false,"photoFilePath":"1731930939920.jpeg","_id":"temp-4dd68ef2-326a-4884-970b-3de27038a69a","userId":"vI1GMkzBza5i82zj","location":{"lat":46.77725764436253,"lng":23.560523986816406}}
-{"name":"task offline 5","description":"","deadline":"2024-11-14T14:06:00.000Z","progress":46,"important":true,"urgent":false,"finished":false,"photoFilePath":"","_id":"temp-cea336e7-4587-4092-8776-228688bf9664","userId":"vI1GMkzBza5i82zj"}
-{"_id":"11","deadline":"2024-11-08T03:00:00Z","description":"","finished":true,"isNew":false,"isUpdated":true,"name":"task off","progress":74,"userId":"vI1GMkzBza5i82zj"}
-{"_id":"11","deadline":"2024-11-08T03:00:00Z","description":"","finished":true,"isNew":false,"isUpdated":true,"name":"task off","progress":74,"userId":"vI1GMkzBza5i82zj"}
 {"deadline":"2024-12-31T03:00:00Z","description":"hehdhd","finished":false,"isNew":true,"isUpdated":false,"name":"ofliiiine","progress":50,"userId":"vI1GMkzBza5i82zj","_id":"B7RDX50E8I3g1pnA"}
+{"deadline":"2024-12-13T03:00:00Z","description":"abc","finished":false,"name":"task kotlin","progress":51,"userId":"vI1GMkzBza5i82zj","_id":"dROC45ostYgOnPLL"}
+{"name":"task offline noiembrie","description":"","deadline":"2024-11-18T11:54:48.053Z","progress":28,"important":true,"urgent":false,"finished":false,"_id":"temp-4dd68ef2-326a-4884-970b-3de27038a69a","userId":"vI1GMkzBza5i82zj"}
+{"name":"task offline 5","description":"","deadline":"2024-11-14T14:06:00.000Z","progress":46,"important":true,"urgent":false,"finished":false,"_id":"temp-cea336e7-4587-4092-8776-228688bf9664","userId":"vI1GMkzBza5i82zj"}
+{"_id":"0","deadline":"2024-01-01T03:00:00Z","description":"Description for task 0","finished":true,"imageUri":"file:///data/user/0/com.example.myapp/cache/image4457533688952873592jpg","name":"task","progress":50,"userId":"vI1GMkzBza5i82zj"}
