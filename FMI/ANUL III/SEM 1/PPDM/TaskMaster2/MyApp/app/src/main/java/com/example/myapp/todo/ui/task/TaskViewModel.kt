@@ -66,7 +66,8 @@ class TaskViewModel(
         description: String,
         deadline: Instant?,
         finished: Boolean,
-        progress: Int
+        progress: Int,
+        imageUri: String?
     ) {
         viewModelScope.launch {
             Log.d(TAG, "saveOrUpdatetask...");
@@ -77,7 +78,8 @@ class TaskViewModel(
                 description = description,
                 deadline = deadline,
                 finished = finished,
-                progress = progress
+                progress = progress,
+                imageUri = imageUri
             )
 
             try {

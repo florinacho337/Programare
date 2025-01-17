@@ -74,4 +74,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.accompanist.permissions)
+    // Camera
+    implementation(libs.camera.camera2)
+    implementation(libs.camera.view)
+    implementation(libs.camera.lifecycle)
+    implementation(libs.coil.compose)
 }

@@ -15,7 +15,7 @@ import com.example.myapp.auth.LoginScreen
 import com.example.myapp.core.data.UserPreferences
 import com.example.myapp.core.data.remote.Api
 import com.example.myapp.core.ui.UserPreferencesViewModel
-import com.example.myapp.todo.ui.TaskScreen
+import com.example.myapp.todo.ui.task.TaskScreen
 import com.example.myapp.todo.ui.tasks.TasksScreen
 
 val tasksRoute = "tasks"

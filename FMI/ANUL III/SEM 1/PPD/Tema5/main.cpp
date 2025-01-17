@@ -44,12 +44,9 @@ public:
     }
 
     void insertOrUpdate(const int ID, const int score, const int country) const {
-        bannedMutex.lock();
         if (bannedIDs.contains(ID)) {
-            bannedMutex.unlock();
             return;
         }
-        bannedMutex.unlock();
 
         Node* prev = head;
         Node* current = head->next;
@@ -86,8 +83,8 @@ public:
         prev->nodeMutex.lock();
         newNode->next = prev->next;
         prev->next = newNode;
-        newNode->nodeMutex.unlock();
         prev->nodeMutex.unlock();
+        newNode->nodeMutex.unlock();
     }
 
     static void sortListHelper(Node** sortedList, Node* newNode) {
@@ -314,7 +311,7 @@ int main() {
     int minContestants = 80;
     int maxContestants = 100;
     int numProblems = 10;
-    int numWorkers = 2;
+    int numWorkers = 4;
     int numReaders = 4;
 
     // generateInputFiles(numCountries, minContestants, maxContestants, numProblems);

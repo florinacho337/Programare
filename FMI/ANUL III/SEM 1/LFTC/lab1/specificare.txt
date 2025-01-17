@@ -1,23 +1,24 @@
-<program> ::= <functie> | <functie><program>
+<program> ::= <functie> | <functie> <program>
 <functie> ::= <antet_functie> { <instructiuni> }
 <antet_functie> ::= <type> ID ( <parametrii> )
 <type> ::= int | float
-<parametrii> ::= <type> ID | <type> ID, <parametrii>
+<parametrii> ::= <type> ID | <type> ID , <parametrii>
 <instructiuni> ::= <instructiune> | <instructiune> <instructiuni>
 <instructiune> ::= <declarare> | <atribuire> | <citire> | <afisare> | <ciclare> | <conditional> | <op_unar>
-<declarare> ::= <type> ID;
-<atribuire> ::= ID = <expresie> | ID <op_aritmetic>= <expresie>;
-<citire> ::= cin >> ID;
-<afisare> ::= cout << <conditie>;
+<declarare> ::= <type> ID ;
+<atribuire> ::= ID = <expresie> | ID <atribuire_compusa> <expresie> ;
+<citire> ::= cin >> ID ;
+<afisare> ::= cout << <conditie> ;
 <ciclare> ::= while ( <conditie> ) { <instructiuni> }
 <conditional> ::= if ( <conditie> ) { <instructiuni> }
 <expresie> ::= ID | CONST | <expresie> <op_aritmetic> <expresie>
 <conditie> ::= <expresie> | <expresie> <op_relational> <expresie>
 <op_aritmetic> ::= + | - | / | * | %
 <op_relational> ::= > | < | == | != | >= | <=
-<op_unar> ::= <incrementare>; | <decrementare>;
-<incrementare> ::= ++ID | ID++
-<decrementare> ::= --ID | ID--
+<atribuire_compusa> ::= += | -= | /= | *= | %=
+<op_unar> ::= <incrementare> ; | <decrementare> ;
+<incrementare> ::= ++ ID | ID ++
+<decrementare> ::= -- ID | ID --
 
 
 - ID poate contine litere, cifre si "_"
