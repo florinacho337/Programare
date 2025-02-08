@@ -34,7 +34,7 @@
 * ### First Semester
    * [Parallel and Distributed Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/PPD "Parallel and Distributed Programming") (Multithreading, MPI, CUDA, Java, C++)
    * [Formal Languages and Compiler Design](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/LFTC "Formal Languages and Compiler Design") (Python, Bison, Flex)
-   * [Mobile Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/PPDM "Mobile Programming") (Ionic React, Kotlin) - TO DO Application
+   * [Mobile Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/PPDM "Mobile Programming") (Ionic React, Kotlin) - Task Management Application
      
 # Personal Projects
 
