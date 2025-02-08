@@ -3,7 +3,7 @@
 ## First Year
 
 * ### First Semester
-  * [Computer Arhitecture](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/ASC "Computer Arhitecture") (Assembly and C)
+  * [Computer System Arhitecture](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/ASC "Computer Arhitecture") (Assembly and C)
   * [Programming Fundamentals](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/Fundamentele%20programarii "Programming Fundamentals") (Python) - Movie Rentals and Family Expenses
   * [C Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20I/SEM%201/ProgramareC "C Programming") (C)
 
@@ -28,12 +28,19 @@
    * [Artificial Intelligence](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/AI "Artificial Intelligence") (Python)
    * [Web Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/Programare%20WEB "Web Programming") (HTML, CSS, JS, jQuery, Ajax, PHP)
    * [Programming Systems and Environments](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/MPP "Programming Systems and Environments") (C# and Java) - Travel Agency Ticketing System
-     * [Optional Project - Sport Events App](https://github.com/KipaLogix/SporTogether "SporTogether") (React Native, Node.js, Express.js, JWT, Web Sockets) - Team Project
    * [Database Management Systems](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20II/SEM%202/SGBD "DBMS") (SQL Server and C#)
-  
+
+## Third Year
+* ### First Semester
+   * [Parallel and Distributed Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/PPD "Parallel and Distributed Programming") (Multithreading, MPI, CUDA, Java, C++)
+   * [Formal Languages and Compiler Design](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/LFTC "Formal Languages and Compiler Design") (Python, Bison, Flex)
+   * [Mobile Programming](https://github.com/florinacho337/Programare/tree/main/FMI/ANUL%20III/SEM%201/PPDM "Mobile Programming") (Ionic React, Kotlin) - TO DO Application
+     
 # Personal Projects
 
-* SimpleBlog application with Django, Docker and React - [SimpleBlog](https://github.com/florinacho337/SimpleBlog/tree/main "SimpleBlog")
+* SimpleBlog application using Django, Docker and React - [SimpleBlog](https://github.com/florinacho337/SimpleBlog/tree/main "SimpleBlog")
+* Animal shelter management application using React, .NET, PostgreSQL - [PurrSoft](https://github.com/PurrSoft "PurrSoft") - Team project
+* Sport Events Mobile Application using React Native, Node.js, Express.js - [SportTogether](https://github.com/KipaLogix/SporTogether "SporTogether") - Team project
   
   ```c#
   while(doubt){
