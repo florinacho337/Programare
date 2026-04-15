@@ -1,0 +1,8 @@
+*lex.yy.c
+*activitate.txt
+*y.tab.c
+*y.tab.h
+*FIP.txt
+*TS*
+*__pycache__
+*.o

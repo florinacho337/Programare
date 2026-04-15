@@ -147,24 +147,6 @@ struct SharedQueue {
     condition_variable conditionNotEmpty;
     condition_variable conditionNotFull;
     const size_t MAX_CAPACITY = 100;
-
-    void push(const pair<int, int>& item) {
-        unique_lock lock(queueMutex);
-        conditionNotFull.wait(lock, [&]() { return q.size() < MAX_CAPACITY; });
-        q.push(item);
-        lock.unlock();
-        conditionNotEmpty.notify_one();
-    }
-
-    pair<int, int> pop() {
-        unique_lock lock(queueMutex);
-        conditionNotEmpty.wait(lock, [&]() { return !q.empty(); });
-        auto item = q.front();
-        q.pop();
-        lock.unlock();
-        conditionNotFull.notify_one();
-        return item;
-    }
 };
 
 void readerFunction(int threadID, int numCountries, int numProblems, SharedQueue& sharedQueue, int p_r) {
