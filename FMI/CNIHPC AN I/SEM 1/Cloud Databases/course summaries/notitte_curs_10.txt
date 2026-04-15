@@ -1,0 +1,128 @@
+curs 10
+RDBMS - ROW  ORIENTED (can have NULL data)
+wide column - data stored cy column families, rows can have diff columns (no null data - diff no of columns)
+
+Characteristics:
+add columns without locking tables
+tolerate node failures without downtime
+data partitioned across multiple nodes (sharding)
+hotizontal scaling using commodity hardware
+
+
+Distributed architectures:
+Master-Slave (HBase, BigTable)
+-master: gandles metadata and coordination
+-slaves handel data I/O
+
+Peer-to-perr/Masterless (Cassandra, ScyllaDB varianta mai performanta la Cassandra)
+-all nodes are euqal
+-any node can handle a request (coordinator node)
+
+Tunnable consistency: the ability to trade latency for consistency per-query (qorum vs one):
+
+Consistency level (tunnnable consistency): 
+ONE: e destul ca o singura replica sa raspunda pentru a considera operatia executata cu success
+
+QUORUM: [n/2] + 1 (majoritatea replicilor trebuuie sa raspunda ca au primit actualizarea)
+ALL, LOCAL_QUORUM (MAJORITY OF REPLICAS IN THE LOCAL DATACENTER), EACH_QUORUM (MAJORITY IN EACH DATACENTER)
+
+COnsistent hashing:
+the key is hashed and transformed into a token on an imaginary ring (THE TOKEN RING)
+
+
+WRITE: Optimized for high write throughput:Write path creates many small SSTables and "Tombstones" (deletion markers).
+
+READ: Challenge: Data might exist in the MemTable or across multiple SSTables.
+
+
+Partition Key:
+● Determines which node stores the data.
+● Responsible for data distribution.
+Clustering Key:
+● Determines how data is sorted on the disk within the partition.
+● Responsible for range queries.
+
+USe cases - good to use:
+● High Write Throughput: IoT sensor data,
+Logging, Clickstreams.
+● Time Series Data: Financial ticks, metrics,
+history.
+● Geographically Distributed Apps: Multi-region
+replication.
+● Personalization Engines: User profiles and
+activity streams.
+
+Use cases - not for:
+● ACID Transactions: If you need banking-
+level atomic transfers between tables.
+● Ad-Hoc Queries: "Find users where Age > 25
+AND City = 'NY'" (Requires full table scans =
+slow).
+● Joins: Wide column stores generally do not
+support server-side joins.
+● Small datasets: The overhead of a
+distributed system isn't worth it for < 50GB.
+
+Cassandra:
+-massive amounts of data
+-high availability and linear scalability with no single point
+of failure
+-e.g: IoT platforms, social media, and real-time analytics
+
+
+Consistent Hashing
+
+Cassandra scales horizontally by hashing data into partitions and replicating them across nodes and failure domains. Since any replica can update any key, each key is versioned. Instead of Dynamo’s vector clocks, Cassandra uses a simpler last-write-wins approach: every mutation, including deletes, is timestamped, and the newest value prevails. Effectively, each CQL row is an LWW-Element-Set CRDT for resolving conflicting replica updates.
+
+Token Ring -  asigura ca adăugarea sau eliminarea unui server necesită mutarea unui volum minim de informație față de hashing-ul tradițional.
+
+Cassandra distributes data using consistent hashing rather than simple modulo hashing. In naive hashing, adding a node forces most key-to-bucket mappings to change. Instead, Cassandra places nodes at token positions on a continuous hash ring and assigns each key to the next node on the ring, as in Chord. This approach ensures that when nodes are added or removed, only a small portion of keys must be moved.
+
+
+NetworkTopologyStrategy
+Această strategie permite setarea factorului de replicare per datacenter și asigură distribuția datelor pe rack-uri diferite pentru a preveni pierderea informațiilor în cazul unei căderi de curent sau de rețea la nivel de rack.
+
+SimpleStrategy
+Este o metodă de bază care ignoră locația fizică a nodurilor, plasând replicile pur și simplu pe următoarele noduri disponibile în ordinea inelului de hash, până când atinge numărul total de copii setat.
+
+SPECIFIC CASSANDRA:
+Update: An update is just an Insert. It writes a new timestamped version.
+Delete: Cassandra cannot immediately delete data from disk (SSTables are immutable).
+Tombstone: A marker written to indicate data is deleted.
+Issues: When deleting too much, reads slow down (skipping over tombstones).
+
+
+CURS 11
+Graph Databases
+
+Graph databases derive from graph theory, where data is represented as:
+V = set of vertices (nodes)
+E = set of edges (relationships)
+
+Components:
+Nodes (entities - Person, Product, City)
+
+Relationships: directed or undirected connections between nodes
+
+Properties:attributes for both nodes and relationships
+
+LPG (Labeled Property Graph) - the most widely used model in contemporary graph db systems, nodurile pot avea label-uri, relatiile au mereu un tip si o directie (PRIETEN_CU, CUMPARAT_DE) si conecteaza nodurile
+
+GRAPHS VS RELATIONAL
+Graphs: operate by traversing the stored connections between entities
+avoids the computational overhead of repeated JOIN computations and scales more naturally with the structural complexity of the
+dataset
+
+
+USe cases:
+Social Networks
+Fraud Detection
+Knowledge Graphs
+Supply Chain and Logistics
+
+
+Neo4j is the most widely adopted native graph database.
+It offers ACID transactions, a native graph engine, and the Cypher language.
+
+Indexing: is essential in traditional DBMSs for accelerating data retrieval, but large indexes can degrade write
+performance and consume substantial storage. Neo4j avoids these costs by relying on index-free adjacency
